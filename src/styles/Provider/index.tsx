@@ -10,7 +10,16 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 
   const muiTheme = useMemo(() => {
     return createTheme({
-      palette: { primary: colors.app.primary }
+      palette: { primary: colors.app.primary },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              padding: `${styles.padding.xxSmall} ${styles.padding.small}`
+            }
+          }
+        }
+      }
     })
   }, [])
 
