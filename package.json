@@ -15,6 +15,9 @@
     "npm": "8.19.2"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@fontsource/noto-sans-jp": "^5.0.17",
+    "emotion-normalize": "^11.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
