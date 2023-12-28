@@ -11,10 +11,14 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const muiTheme = useMemo(() => {
     return createTheme({
       palette: { primary: colors.app.primary },
+      typography: {
+        fontFamily: ['Noto Sans JP', 'sans-serif'].join(',')
+      },
       components: {
         MuiButton: {
           styleOverrides: {
             root: {
+              fontWeight: styles.fontWeight.normal,
               padding: `${styles.padding.xxSmall} ${styles.padding.small}`
             }
           }
