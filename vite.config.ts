@@ -11,7 +11,10 @@ export default defineConfig({
     })
   ],
   resolve: {
-    alias: [{ find: '@styles', replacement: '/src/styles' }]
+    alias: [
+      { find: '@components', replacement: '/src/components' },
+      { find: '@styles', replacement: '/src/styles' }
+    ]
   },
   server: {
     open: true
