@@ -11,7 +11,5 @@
   "dictionaries": ["project-words"],
   "files": ["./src/**/*.{ts,tsx,js,jsx,json}"],
   "ignorePaths": ["node_modules"],
-  "ignoreRegExpList": [
-    "/import\\s*(?:[\\w*{},\\s]*\\sfrom\\s*)?['\"]([^'\"]+)['\"]/"
-  ]
+  "ignoreRegExpList": ["/import\\s*(?:[\\w*{},\\s]*\\sfrom\\s*)?['\"]([^'\"]+)['\"]/"]
 }
