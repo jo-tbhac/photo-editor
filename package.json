@@ -25,8 +25,10 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.15.2",
     "emotion-normalize": "^11.0.1",
+    "konva": "^9.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-konva": "^18.2.10"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
