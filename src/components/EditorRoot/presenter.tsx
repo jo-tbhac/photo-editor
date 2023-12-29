@@ -26,7 +26,7 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
       <Header setImageSource={setImageSource} />
       <div css={styles.body}>
         <ToolBar />
-        <Stage />
+        <Stage imageSource={imageSource} />
       </div>
     </div>
   )
