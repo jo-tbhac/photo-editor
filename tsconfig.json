@@ -18,6 +18,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@icons/*": ["src/icons/*"],
+      "@shared/*": ["src/shared/*"],
       "@styles/*": ["src/styles/*"]
     },
 

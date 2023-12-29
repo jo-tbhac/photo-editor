@@ -14,6 +14,7 @@ export default defineConfig({
     alias: [
       { find: '@components', replacement: '/src/components' },
       { find: '@icons', replacement: '/src/icons' },
+      { find: '@shared', replacement: '/src/shared' },
       { find: '@styles', replacement: '/src/styles' }
     ]
   },

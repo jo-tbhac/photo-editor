@@ -18,6 +18,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         MuiButton: {
           styleOverrides: {
             root: {
+              boxShadow: 'initial',
               fontWeight: styles.fontWeight.normal,
               padding: `${styles.padding.xxSmall} ${styles.padding.small}`
             }

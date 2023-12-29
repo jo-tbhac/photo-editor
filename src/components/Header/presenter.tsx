@@ -4,11 +4,16 @@ import { FC } from 'react'
 import { Button } from '@components/commons/Button'
 import { HEADER_HEIGHT } from '@styles/constants'
 
-export const HeaderPresenter: FC = () => {
+import { HeaderPresenterProps } from './types'
+
+export const HeaderPresenter: FC<HeaderPresenterProps> = ({ cancelEdit }) => {
   return (
     <div css={styles.container}>
       <div css={styles.buttonContainer}>
-        <Button variant="outlined">画像を書き出す</Button>
+        <Button variant="outlined" onClick={cancelEdit}>
+          編集をやめる
+        </Button>
+        <Button variant="contained">画像を書き出す</Button>
       </div>
     </div>
   )
@@ -23,9 +28,10 @@ const styles = {
     padding: 0 ${theme.styles.padding.small};
     width: 100%;
   `,
-  buttonContainer: css`
+  buttonContainer: (theme: Theme) => css`
     display: flex;
     flex: 1;
+    gap: ${theme.styles.margin.small};
     justify-content: flex-end;
   `
 }

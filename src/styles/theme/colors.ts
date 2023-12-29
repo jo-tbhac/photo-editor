@@ -30,7 +30,7 @@ export const colors = {
     main: '#fff',
     sub: '#f4f4f4',
     hover: {
-      main: 'rgba(240,240,240,0.6)',
+      main: 'rgba(250,250,250,0.6)',
       sub: 'rgba(227,227,227,0.6)'
     }
   },
