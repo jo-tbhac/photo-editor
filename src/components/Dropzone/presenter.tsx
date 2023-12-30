@@ -1,11 +1,13 @@
 import { Theme, css } from '@emotion/react'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons/faCloudArrowUp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { DragEvent, FC, useState } from 'react'
+import { ChangeEvent, DragEvent, FC, MouseEvent, useRef, useState } from 'react'
 
 import { DropzonePresenterProps } from './types'
 
-export const DropzonePresenter: FC<DropzonePresenterProps> = ({ handleDropFiles }) => {
+export const DropzonePresenter: FC<DropzonePresenterProps> = ({ handleSelectFiles }) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+
   const [isDragOver, setIsDragOver] = useState(false)
 
   const onDragEnter = () => {
@@ -23,8 +25,20 @@ export const DropzonePresenter: FC<DropzonePresenterProps> = ({ handleDropFiles 
   const onDrop = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault()
     event.stopPropagation()
-    handleDropFiles(event.dataTransfer.files)
+    handleSelectFiles(event.dataTransfer.files)
     setIsDragOver(false)
+  }
+
+  const onChangeFileInput = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target instanceof HTMLInputElement && event.target.files) {
+      handleSelectFiles(event.target.files)
+    }
+  }
+
+  const onClickDropzone = (event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
+    inputRef.current?.click()
   }
 
   return (
@@ -33,12 +47,15 @@ export const DropzonePresenter: FC<DropzonePresenterProps> = ({ handleDropFiles 
         <FontAwesomeIcon icon={faCloudArrowUp} size="2x" />
       </div>
       <div css={styles.description}>画像をドロップ、または選択して編集を開始</div>
+      <input ref={inputRef} type="file" css={styles.fileInput} onChange={onChangeFileInput} />
       <div
         css={styles.overlay}
         onDragEnter={onDragEnter}
         onDragLeave={onDragLeave}
         onDragOver={onDragOver}
         onDrop={onDrop}
+        onClick={onClickDropzone}
+        onKeyDown={() => {}}
       />
     </div>
   )
@@ -69,6 +86,9 @@ const styles = {
   description: (theme: Theme) => css`
     padding: ${theme.styles.padding.medium} 0;
     text-align: center;
+  `,
+  fileInput: css`
+    display: none;
   `,
   overlay: css`
     cursor: pointer;

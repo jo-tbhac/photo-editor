@@ -3,5 +3,5 @@ export interface DropzoneProps {
 }
 
 export interface DropzonePresenterProps {
-  handleDropFiles: (files: FileList) => void
+  handleSelectFiles: (files: FileList) => void
 }

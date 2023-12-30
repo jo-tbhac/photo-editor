@@ -6,7 +6,7 @@ import { DropzonePresenter } from './presenter'
 import { DropzoneProps } from './types'
 
 export const Dropzone: FC<DropzoneProps> = ({ setImageSource }) => {
-  const handleDropFiles = (files: FileList) => {
+  const handleSelectFiles = (files: FileList) => {
     const imageFile = Array.from(files).find((file) => ALLOWED_IMAGE_MIME_TYPES.includes(file.type))
     if (imageFile == null) {
       // TODO show alert
@@ -16,5 +16,5 @@ export const Dropzone: FC<DropzoneProps> = ({ setImageSource }) => {
     setImageSource(URL.createObjectURL(imageFile))
   }
 
-  return <DropzonePresenter handleDropFiles={handleDropFiles} />
+  return <DropzonePresenter handleSelectFiles={handleSelectFiles} />
 }
