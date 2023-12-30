@@ -11,7 +11,9 @@ import { EditorRootPresenterProps } from './types'
 
 export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
   imageSource,
-  setImageSource
+  setImageSource,
+  selectedFillColor,
+  setSelectedFillColor
 }) => {
   if (imageSource == null) {
     return (
@@ -25,7 +27,10 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
     <div css={styles.contentContainer}>
       <Header setImageSource={setImageSource} />
       <div css={styles.body}>
-        <ToolBar />
+        <ToolBar
+          selectedFillColor={selectedFillColor}
+          setSelectedFillColor={setSelectedFillColor}
+        />
         <Stage imageSource={imageSource} />
       </div>
     </div>

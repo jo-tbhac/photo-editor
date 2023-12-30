@@ -7,13 +7,19 @@ import { faPen } from '@fortawesome/free-solid-svg-icons/faPen'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FC } from 'react'
 
+import { FillColorSelect } from '@components/FillColorSelect'
 import { IconButton } from '@components/commons/IconButton'
 import { Tooltip } from '@components/commons/Tooltip'
 import { LineIcon } from '@icons/Line'
 import { RoundedIcon } from '@icons/Rounded'
 import { TOOLBAR_WIDTH } from '@styles/constants'
 
-export const ToolBarPresenter: FC = () => {
+import { ToolBarPresenterProps } from './types'
+
+export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
+  selectedFillColor,
+  setSelectedFillColor
+}) => {
   return (
     <div css={styles.container}>
       <Tooltip title="四角形を挿入" placement="right">
@@ -57,6 +63,13 @@ export const ToolBarPresenter: FC = () => {
           <FontAwesomeIcon icon={faFont} css={styles.icon} />
         </IconButton>
       </Tooltip>
+
+      <div css={styles.divider} />
+
+      <FillColorSelect
+        selectedFillColor={selectedFillColor}
+        setSelectedFillColor={setSelectedFillColor}
+      />
     </div>
   )
 }
@@ -90,5 +103,11 @@ const styles = {
     rect, line {
       stroke: ${theme.colors.font.sub};
     }
+  `,
+  divider: (theme: Theme) => css`
+    background-color: ${theme.colors.border.main};
+    height: 1px;
+    margin: ${theme.styles.margin.xSmall} 0;
+    width: 100%;
   `
 }
