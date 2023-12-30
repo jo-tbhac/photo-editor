@@ -13,8 +13,8 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '@components', replacement: '/src/components' },
+      { find: '@constants', replacement: '/src/constants' },
       { find: '@icons', replacement: '/src/icons' },
-      { find: '@shared', replacement: '/src/shared' },
       { find: '@styles', replacement: '/src/styles' }
     ]
   },
