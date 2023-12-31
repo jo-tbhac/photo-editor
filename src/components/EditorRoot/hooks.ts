@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 
-import { FILL_COLOR_LIST } from '@constants/index'
+import { FILL_COLOR_LIST, STROKE_WIDTH_LIST } from '@constants/index'
 
 export const useImageSource = () => {
   const [imageSource, setImageSourceState] = useState<string | null>(null)
@@ -25,4 +25,14 @@ export const useFillColor = () => {
   }, [])
 
   return { selectedFillColor, setSelectedFillColor }
+}
+
+export const useStrokeWidth = () => {
+  const [selectedStrokeWidth, setSelectedStrokeWidthState] = useState(STROKE_WIDTH_LIST[2])
+
+  const setSelectedStrokeWidth = (newStrokeWidth: number) => {
+    setSelectedStrokeWidthState(newStrokeWidth)
+  }
+
+  return { selectedStrokeWidth, setSelectedStrokeWidth }
 }

@@ -73,6 +73,7 @@ const styles = {
     border-radius: 50%;
     cursor: pointer;
     height: 25px;
+    margin: ${theme.styles.margin.xxSmall} 0;
     width: 25px;
   `,
   popover: (theme: Theme) => css`

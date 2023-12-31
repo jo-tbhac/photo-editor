@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FC } from 'react'
 
 import { FillColorSelect } from '@components/FillColorSelect'
+import { StrokeWidthSelect } from '@components/StrokeWidthSelect'
 import { IconButton } from '@components/commons/IconButton'
 import { Tooltip } from '@components/commons/Tooltip'
 import { LineIcon } from '@icons/Line'
@@ -18,7 +19,9 @@ import { ToolBarPresenterProps } from './types'
 
 export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
   selectedFillColor,
-  setSelectedFillColor
+  setSelectedFillColor,
+  selectedStrokeWidth,
+  setSelectedStrokeWidth
 }) => {
   return (
     <div css={styles.container}>
@@ -69,6 +72,11 @@ export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
       <FillColorSelect
         selectedFillColor={selectedFillColor}
         setSelectedFillColor={setSelectedFillColor}
+      />
+
+      <StrokeWidthSelect
+        selectedStrokeWidth={selectedStrokeWidth}
+        setSelectedStrokeWidth={setSelectedStrokeWidth}
       />
     </div>
   )

@@ -13,7 +13,9 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
   imageSource,
   setImageSource,
   selectedFillColor,
-  setSelectedFillColor
+  setSelectedFillColor,
+  selectedStrokeWidth,
+  setSelectedStrokeWidth
 }) => {
   if (imageSource == null) {
     return (
@@ -30,6 +32,8 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
         <ToolBar
           selectedFillColor={selectedFillColor}
           setSelectedFillColor={setSelectedFillColor}
+          selectedStrokeWidth={selectedStrokeWidth}
+          setSelectedStrokeWidth={setSelectedStrokeWidth}
         />
         <Stage imageSource={imageSource} />
       </div>

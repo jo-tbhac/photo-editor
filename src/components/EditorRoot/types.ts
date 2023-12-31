@@ -3,4 +3,6 @@ export interface EditorRootPresenterProps {
   setImageSource: (source: string | null) => void
   selectedFillColor: string
   setSelectedFillColor: (fillColor: string) => void
+  selectedStrokeWidth: number
+  setSelectedStrokeWidth: (strokeWidth: number) => void
 }

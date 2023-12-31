@@ -10,3 +10,5 @@ export const FILL_COLOR_LIST = [
   'rgb(255, 255, 255)',
   'rgb(0, 0, 0)'
 ]
+
+export const STROKE_WIDTH_LIST = [2, 3, 4, 6, 8]
