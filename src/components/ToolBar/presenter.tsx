@@ -5,12 +5,12 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons/faArrowDown'
 import { faFont } from '@fortawesome/free-solid-svg-icons/faFont'
 import { faPen } from '@fortawesome/free-solid-svg-icons/faPen'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FC } from 'react'
+import { FC, MouseEvent } from 'react'
 
 import { FillColorSelect } from '@/components/FillColorSelect'
 import { StrokeWidthSelect } from '@/components/StrokeWidthSelect'
-import { IconButton } from '@/components/commons/IconButton'
-import { Tooltip } from '@/components/commons/Tooltip'
+import { ToolBarButton } from '@/components/ToolBarButton'
+import { SHAPES } from '@/constants'
 import { LineIcon } from '@/icons/Line'
 import { RoundedIcon } from '@/icons/Rounded'
 import { TOOLBAR_WIDTH } from '@/styles/constants'
@@ -21,51 +21,89 @@ export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
   selectedFillColor,
   setSelectedFillColor,
   selectedStrokeWidth,
-  setSelectedStrokeWidth
+  setSelectedStrokeWidth,
+  selectedShape,
+  setSelectedShape
 }) => {
+  const onClickRect = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    setSelectedShape(SHAPES.rect)
+  }
+
+  const onClickRoundedRect = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    setSelectedShape(SHAPES.roundedRect)
+  }
+
+  const onClickOval = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    setSelectedShape(SHAPES.oval)
+  }
+
+  const onClickArrow = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    setSelectedShape(SHAPES.arrow)
+  }
+
+  const onClickLine = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    setSelectedShape(SHAPES.line)
+  }
+
+  const onClickPen = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    setSelectedShape(SHAPES.pen)
+  }
+
+  const onClickText = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    setSelectedShape(SHAPES.text)
+  }
+
   return (
     <div css={styles.container}>
-      <Tooltip title="四角形を挿入" placement="right">
-        <IconButton css={styles.iconButton}>
-          <FontAwesomeIcon icon={faSquare} css={styles.icon} />
-        </IconButton>
-      </Tooltip>
-
-      <Tooltip title="角丸四角形を挿入" placement="right">
-        <IconButton css={styles.iconButton}>
-          <RoundedIcon css={styles.icon} />
-        </IconButton>
-      </Tooltip>
-
-      <Tooltip title="円形を挿入" placement="right">
-        <IconButton css={styles.iconButton}>
-          <FontAwesomeIcon icon={faCircle} css={styles.icon} />
-        </IconButton>
-      </Tooltip>
-
-      <Tooltip title="矢印を挿入" placement="right">
-        <IconButton css={styles.iconButton}>
-          <FontAwesomeIcon icon={faArrowDown} css={styles.icon} />
-        </IconButton>
-      </Tooltip>
-
-      <Tooltip title="直線を挿入" placement="right">
-        <IconButton css={styles.iconButton}>
-          <LineIcon css={styles.icon} />
-        </IconButton>
-      </Tooltip>
-
-      <Tooltip title="画像の上に描く" placement="right">
-        <IconButton css={styles.iconButton}>
-          <FontAwesomeIcon icon={faPen} css={styles.icon} />
-        </IconButton>
-      </Tooltip>
-
-      <Tooltip title="テキストを挿入" placement="right">
-        <IconButton css={styles.iconButton}>
-          <FontAwesomeIcon icon={faFont} css={styles.icon} />
-        </IconButton>
-      </Tooltip>
+      <ToolBarButton
+        tooltipText="四角形を挿入"
+        active={selectedShape === SHAPES.rect}
+        Icon={<FontAwesomeIcon icon={faSquare} css={styles.icon} />}
+        onClick={onClickRect}
+      />
+      <ToolBarButton
+        tooltipText="角丸四角形を挿入"
+        active={selectedShape === SHAPES.roundedRect}
+        Icon={<RoundedIcon css={styles.icon} />}
+        onClick={onClickRoundedRect}
+      />
+      <ToolBarButton
+        tooltipText="円形を挿入"
+        active={selectedShape === SHAPES.oval}
+        Icon={<FontAwesomeIcon icon={faCircle} css={styles.icon} />}
+        onClick={onClickOval}
+      />
+      <ToolBarButton
+        tooltipText="矢印を挿入"
+        active={selectedShape === SHAPES.arrow}
+        Icon={<FontAwesomeIcon icon={faArrowDown} css={styles.icon} />}
+        onClick={onClickArrow}
+      />
+      <ToolBarButton
+        tooltipText="直線を挿入"
+        active={selectedShape === SHAPES.line}
+        Icon={<LineIcon css={styles.icon} />}
+        onClick={onClickLine}
+      />
+      <ToolBarButton
+        tooltipText="画像の上に描く"
+        active={selectedShape === SHAPES.pen}
+        Icon={<FontAwesomeIcon icon={faPen} css={styles.icon} />}
+        onClick={onClickPen}
+      />
+      <ToolBarButton
+        tooltipText="テキストを挿入"
+        active={selectedShape === SHAPES.text}
+        Icon={<FontAwesomeIcon icon={faFont} css={styles.icon} />}
+        onClick={onClickText}
+      />
 
       <div css={styles.divider} />
 
@@ -93,10 +131,6 @@ const styles = {
     justify-content: center;
     padding: 0 ${theme.styles.padding.xSmall};
     width: ${TOOLBAR_WIDTH}px;
-  `,
-  iconButton: (theme: Theme) => css`
-    border-radius: ${theme.styles.borderRadius.medium};
-    padding: ${theme.styles.padding.xSmall};
   `,
   icon: (theme: Theme) => css`
     color: ${theme.colors.font.sub};

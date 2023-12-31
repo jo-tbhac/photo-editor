@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 
 import { FILL_COLOR_LIST, STROKE_WIDTH_LIST } from '@/constants'
+import { Shapes } from '@/types'
 
 export const useImageSource = () => {
   const [imageSource, setImageSourceState] = useState<string | null>(null)
@@ -35,4 +36,14 @@ export const useSelectedStrokeWidth = () => {
   }
 
   return { selectedStrokeWidth, setSelectedStrokeWidth }
+}
+
+export const useSelectedShape = () => {
+  const [selectedShape, setSelectedShapeState] = useState<Shapes | null>(null)
+
+  const setSelectedShape = (newShape: Shapes | null) => {
+    setSelectedShapeState(newShape)
+  }
+
+  return { selectedShape, setSelectedShape }
 }

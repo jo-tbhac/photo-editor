@@ -12,3 +12,13 @@ export const FILL_COLOR_LIST = [
 ]
 
 export const STROKE_WIDTH_LIST = [2, 3, 4, 6, 8]
+
+export const SHAPES = {
+  arrow: 'arrow',
+  text: 'text',
+  rect: 'rect',
+  roundedRect: 'roundedRect',
+  oval: 'oval',
+  line: 'line',
+  pen: 'pen'
+} as const

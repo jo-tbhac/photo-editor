@@ -7,7 +7,9 @@ export const ToolBar: FC<ToolBarProps> = ({
   selectedFillColor,
   setSelectedFillColor,
   selectedStrokeWidth,
-  setSelectedStrokeWidth
+  setSelectedStrokeWidth,
+  selectedShape,
+  setSelectedShape
 }) => {
   return (
     <ToolBarPresenter
@@ -15,6 +17,8 @@ export const ToolBar: FC<ToolBarProps> = ({
       setSelectedFillColor={setSelectedFillColor}
       selectedStrokeWidth={selectedStrokeWidth}
       setSelectedStrokeWidth={setSelectedStrokeWidth}
+      selectedShape={selectedShape}
+      setSelectedShape={setSelectedShape}
     />
   )
 }
