@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { GlobalStyles } from '@styles/Global'
-import { ThemeProvider } from '@styles/Provider'
+import { GlobalStyles } from '@/styles/Global'
+import { ThemeProvider } from '@/styles/Provider'
 
 import { App } from './App.tsx'
 

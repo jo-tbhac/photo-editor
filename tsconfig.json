@@ -16,10 +16,7 @@
     "jsxImportSource": "@emotion/react",
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@icons/*": ["src/icons/*"],
-      "@styles/*": ["src/styles/*"]
+      "@/*": ["src/*"],
     },
 
     /* Linting */

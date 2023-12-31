@@ -1,9 +1,9 @@
 import { Theme, css } from '@emotion/react'
 import { FC, useRef, useState } from 'react'
 
-import { Popover } from '@components/commons/Popover'
-import { Tooltip } from '@components/commons/Tooltip'
-import { FILL_COLOR_LIST } from '@constants/index'
+import { Popover } from '@/components/commons/Popover'
+import { Tooltip } from '@/components/commons/Tooltip'
+import { FILL_COLOR_LIST } from '@/constants'
 
 import { FillColorSelectPresenterProps } from './types'
 

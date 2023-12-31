@@ -1,8 +1,8 @@
 import { Theme, css } from '@emotion/react'
 import { FC } from 'react'
 
-import { Button } from '@components/commons/Button'
-import { HEADER_HEIGHT } from '@styles/constants'
+import { Button } from '@/components/commons/Button'
+import { HEADER_HEIGHT } from '@/styles/constants'
 
 import { HeaderPresenterProps } from './types'
 

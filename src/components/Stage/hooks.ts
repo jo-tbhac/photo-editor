@@ -5,7 +5,7 @@ import {
   STAGE_PADDING_HORIZONTAL,
   STAGE_PADDING_VERTICAL,
   TOOLBAR_WIDTH
-} from '@styles/constants'
+} from '@/styles/constants'
 
 export const useImage = (source: string) => {
   const [imageElement, setImageElement] = useState<HTMLImageElement | undefined>(undefined)

@@ -1,12 +1,12 @@
 import { FC } from 'react'
 
-import { useFillColor, useImageSource, useStrokeWidth } from './hooks'
+import { useImageSource, useSelectedFillColor, useSelectedStrokeWidth } from './hooks'
 import { EditorRootPresenter } from './presenter'
 
 export const EditorRoot: FC = () => {
   const { imageSource, setImageSource } = useImageSource()
-  const { selectedFillColor, setSelectedFillColor } = useFillColor()
-  const { selectedStrokeWidth, setSelectedStrokeWidth } = useStrokeWidth()
+  const { selectedFillColor, setSelectedFillColor } = useSelectedFillColor()
+  const { selectedStrokeWidth, setSelectedStrokeWidth } = useSelectedStrokeWidth()
 
   return (
     <EditorRootPresenter

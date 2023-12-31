@@ -11,12 +11,7 @@ export default defineConfig({
     })
   ],
   resolve: {
-    alias: [
-      { find: '@components', replacement: '/src/components' },
-      { find: '@constants', replacement: '/src/constants' },
-      { find: '@icons', replacement: '/src/icons' },
-      { find: '@styles', replacement: '/src/styles' }
-    ]
+    alias: [{ find: '@', replacement: '/src' }]
   },
   server: {
     open: true

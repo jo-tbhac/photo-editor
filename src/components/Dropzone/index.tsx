@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { ALLOWED_IMAGE_MIME_TYPES } from '@constants/index'
+import { ALLOWED_IMAGE_MIME_TYPES } from '@/constants'
 
 import { DropzonePresenter } from './presenter'
 import { DropzoneProps } from './types'
