@@ -22,3 +22,7 @@ export const SHAPES = {
   line: 'line',
   pen: 'pen'
 } as const
+
+export const DEFAULT_ROUNDED_RECT_CORNER_RADIUS = 10
+export const MIN_SHAPE_HEIGHT = 10
+export const MIN_SHAPE_WIDTH = 10

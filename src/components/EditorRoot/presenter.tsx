@@ -39,7 +39,12 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
           selectedShape={selectedShape}
           setSelectedShape={setSelectedShape}
         />
-        <Stage imageSource={imageSource} />
+        <Stage
+          imageSource={imageSource}
+          selectedFillColor={selectedFillColor}
+          selectedStrokeWidth={selectedStrokeWidth}
+          selectedShape={selectedShape}
+        />
       </div>
     </div>
   )
