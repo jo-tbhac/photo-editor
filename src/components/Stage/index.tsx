@@ -17,6 +17,7 @@ export const Stage: FC<StageProps> = ({
   const drawLayerRef = useRef<Konva.Layer>(null)
 
   const [shapeConfigList, setShapeConfigList] = useState<ShapeConfig[]>([])
+  const [selectedShapeIds, setSelectedShapeIds] = useState<string[]>([])
 
   const imageElement = useImage(imageSource)
   const imageSize = useImageSize(imageElement)
@@ -30,13 +31,20 @@ export const Stage: FC<StageProps> = ({
     setShapeConfigList
   })
 
+  // 図形の描画と選択が競合しないようにする
+  const disabledSelect = selectedShape != null
+
   return (
     <StagePresenter
       stageRef={stageRef}
       drawLayerRef={drawLayerRef}
       imageElement={imageElement}
       imageSize={imageSize}
+      disabledSelect={disabledSelect}
       shapeConfigList={shapeConfigList}
+      setShapeConfigList={setShapeConfigList}
+      selectedShapeIds={selectedShapeIds}
+      setSelectedShapeIds={setSelectedShapeIds}
       handleMouseDownStage={handleMouseDownStage}
     />
   )

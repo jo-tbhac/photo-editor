@@ -13,11 +13,19 @@ export const StagePresenter: FC<StagePresenterProps> = ({
   drawLayerRef,
   imageElement,
   imageSize,
+  disabledSelect,
   shapeConfigList,
+  setShapeConfigList,
+  selectedShapeIds,
+  setSelectedShapeIds,
   handleMouseDownStage
 }) => {
+  const onMouseDownStageContainer = () => {
+    setSelectedShapeIds([])
+  }
+
   return (
-    <div css={styles.container}>
+    <div css={styles.container} onMouseDown={onMouseDownStageContainer}>
       <Stage
         ref={stageRef}
         width={imageSize?.width}
@@ -32,9 +40,29 @@ export const StagePresenter: FC<StagePresenterProps> = ({
           {shapeConfigList.map((shapeConfig) => {
             switch (shapeConfig.type) {
               case SHAPES.rect:
-                return <Rect {...shapeConfig} key={shapeConfig.id} selected={false} />
+                return (
+                  <Rect
+                    {...shapeConfig}
+                    key={shapeConfig.id}
+                    strokeScaleEnabled={false}
+                    disabledSelect={disabledSelect}
+                    selected={selectedShapeIds.includes(shapeConfig.id)}
+                    setSelectedShapeIds={setSelectedShapeIds}
+                    setShapeConfigList={setShapeConfigList}
+                  />
+                )
               case SHAPES.roundedRect:
-                return <RoundedRect {...shapeConfig} key={shapeConfig.id} selected={false} />
+                return (
+                  <RoundedRect
+                    {...shapeConfig}
+                    key={shapeConfig.id}
+                    strokeScaleEnabled={false}
+                    disabledSelect={disabledSelect}
+                    selected={selectedShapeIds.includes(shapeConfig.id)}
+                    setSelectedShapeIds={setSelectedShapeIds}
+                    setShapeConfigList={setShapeConfigList}
+                  />
+                )
               default:
                 return null
             }

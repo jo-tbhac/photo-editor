@@ -1,5 +1,5 @@
 import Konva from 'konva'
-import { RefObject } from 'react'
+import { Dispatch, RefObject, SetStateAction } from 'react'
 
 import { ShapeConfig, Shapes } from '@/types'
 
@@ -15,6 +15,10 @@ export interface StagePresenterProps {
   drawLayerRef: RefObject<Konva.Layer>
   imageElement: HTMLImageElement | undefined
   imageSize: { height: number; width: number } | undefined
+  disabledSelect: boolean
   shapeConfigList: ShapeConfig[]
+  setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
+  selectedShapeIds: string[]
+  setSelectedShapeIds: Dispatch<SetStateAction<string[]>>
   handleMouseDownStage: (event: Konva.KonvaEventObject<MouseEvent>) => void
 }

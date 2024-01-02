@@ -42,7 +42,12 @@ export const useSelectedShape = () => {
   const [selectedShape, setSelectedShapeState] = useState<Shapes | null>(null)
 
   const setSelectedShape = (newShape: Shapes | null) => {
-    setSelectedShapeState(newShape)
+    setSelectedShapeState((currentSelectedShape) => {
+      if (currentSelectedShape === newShape) {
+        return null
+      }
+      return newShape
+    })
   }
 
   return { selectedShape, setSelectedShape }
