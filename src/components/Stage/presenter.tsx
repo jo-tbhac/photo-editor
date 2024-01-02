@@ -2,6 +2,7 @@ import { Theme, css } from '@emotion/react'
 import { FC } from 'react'
 import { Image, Layer, Stage } from 'react-konva'
 
+import { Oval } from '@/components/shapes/Oval'
 import { Rect } from '@/components/shapes/Rect'
 import { RoundedRect } from '@/components/shapes/RoundedRect'
 import { SHAPES } from '@/constants'
@@ -54,6 +55,18 @@ export const StagePresenter: FC<StagePresenterProps> = ({
               case SHAPES.roundedRect:
                 return (
                   <RoundedRect
+                    {...shapeConfig}
+                    key={shapeConfig.id}
+                    strokeScaleEnabled={false}
+                    disabledSelect={disabledSelect}
+                    selected={selectedShapeIds.includes(shapeConfig.id)}
+                    setSelectedShapeIds={setSelectedShapeIds}
+                    setShapeConfigList={setShapeConfigList}
+                  />
+                )
+              case SHAPES.oval:
+                return (
+                  <Oval
                     {...shapeConfig}
                     key={shapeConfig.id}
                     strokeScaleEnabled={false}

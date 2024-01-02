@@ -14,7 +14,7 @@ import {
   STAGE_PADDING_VERTICAL,
   TOOLBAR_WIDTH
 } from '@/styles/constants'
-import { RectConfig, RoundedRectConfig, ShapeConfig, Shapes } from '@/types'
+import { OvalConfig, RectConfig, RoundedRectConfig, ShapeConfig, Shapes } from '@/types'
 
 export const useImage = (source: string) => {
   const [imageElement, setImageElement] = useState<HTMLImageElement | undefined>(undefined)
@@ -137,6 +137,72 @@ export const useDrawShape = ({
           newRect.remove()
           setShapeConfigList((currentConfigList) =>
             newRectConfig.visible ? [...currentConfigList, newRectConfig] : currentConfigList
+          )
+
+          stageElement.off('mousemove', handleMouseMove)
+          stageElement.off('mouseup mouseleave', handleFinishInsertShape)
+        }
+
+        stageElement.on('mousemove', handleMouseMove)
+        stageElement.on('mouseup mouseleave', handleFinishInsertShape)
+        break
+      }
+      case SHAPES.oval: {
+        const x1 = event.evt.offsetX
+        const y1 = event.evt.offsetY
+        let x2 = event.evt.offsetX
+        let y2 = event.evt.offsetY
+
+        const newOval = new Konva.Ellipse({
+          stroke: selectedFillColor,
+          strokeWidth: selectedStrokeWidth,
+          x: x1,
+          y: y1,
+          radiusX: x1,
+          radiusY: y1,
+          visible: false
+        })
+
+        drawLayerElement.add(newOval)
+
+        const handleMouseMove = (moveEvent: Konva.KonvaEventObject<MouseEvent>) => {
+          moveEvent.evt.preventDefault()
+          const vector2D = stageElement.getPointerPosition()
+
+          if (!vector2D) {
+            return
+          }
+
+          x2 = vector2D.x
+          y2 = vector2D.y
+
+          const moveX = x2 - x1
+          const moveY = y2 - y1
+          const newX = x1 + moveX / 2
+          const newY = y1 + moveY / 2
+
+          newOval.setAttrs({
+            x: newX,
+            y: newY,
+            radiusX: Math.abs(newX - x1),
+            radiusY: Math.abs(newY - y1),
+            visible: true
+          })
+        }
+
+        const handleFinishInsertShape = (mouseEvent: Konva.KonvaEventObject<MouseEvent>) => {
+          mouseEvent.evt.preventDefault()
+          const newOvalConfig: OvalConfig = {
+            ...newOval.getAttrs(),
+            id: uuidV4(),
+            type: selectedShape,
+            radiusX: Math.max(newOval.radiusX(), MIN_SHAPE_WIDTH),
+            radiusY: Math.max(newOval.radiusY(), MIN_SHAPE_HEIGHT)
+          }
+
+          newOval.remove()
+          setShapeConfigList((currentConfigList) =>
+            newOvalConfig.visible ? [...currentConfigList, newOvalConfig] : currentConfigList
           )
 
           stageElement.off('mousemove', handleMouseMove)

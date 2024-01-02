@@ -14,4 +14,9 @@ export interface RoundedRectConfig extends Konva.RectConfig {
   type: typeof SHAPES.roundedRect
 }
 
-export type ShapeConfig = RectConfig | RoundedRectConfig
+export interface OvalConfig extends Konva.EllipseConfig {
+  id: string
+  type: typeof SHAPES.oval
+}
+
+export type ShapeConfig = RectConfig | RoundedRectConfig | OvalConfig
