@@ -19,4 +19,21 @@ export interface OvalConfig extends Konva.EllipseConfig {
   type: typeof SHAPES.oval
 }
 
-export type ShapeConfig = RectConfig | RoundedRectConfig | OvalConfig
+export interface LineConfig extends Konva.LineConfig {
+  id: string
+  type: typeof SHAPES.line
+}
+
+export interface ArrowConfig extends Konva.ArrowConfig {
+  id: string
+  type: typeof SHAPES.arrow
+}
+
+export type ShapeConfig = RectConfig | RoundedRectConfig | OvalConfig | LineConfig | ArrowConfig
+
+export interface LinePointsPosition {
+  x1: number
+  y1: number
+  x2: number
+  y2: number
+}

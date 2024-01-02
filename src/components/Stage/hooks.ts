@@ -4,6 +4,8 @@ import { v4 as uuidV4 } from 'uuid'
 
 import {
   DEFAULT_ROUNDED_RECT_CORNER_RADIUS,
+  LINE_HIT_STROKE_WIDTH,
+  MAX_ARROW_POINTER_WIDTH,
   MIN_SHAPE_HEIGHT,
   MIN_SHAPE_WIDTH,
   SHAPES
@@ -14,7 +16,15 @@ import {
   STAGE_PADDING_VERTICAL,
   TOOLBAR_WIDTH
 } from '@/styles/constants'
-import { OvalConfig, RectConfig, RoundedRectConfig, ShapeConfig, Shapes } from '@/types'
+import {
+  ArrowConfig,
+  LineConfig,
+  OvalConfig,
+  RectConfig,
+  RoundedRectConfig,
+  ShapeConfig,
+  Shapes
+} from '@/types'
 
 export const useImage = (source: string) => {
   const [imageElement, setImageElement] = useState<HTMLImageElement | undefined>(undefined)
@@ -203,6 +213,131 @@ export const useDrawShape = ({
           newOval.remove()
           setShapeConfigList((currentConfigList) =>
             newOvalConfig.visible ? [...currentConfigList, newOvalConfig] : currentConfigList
+          )
+
+          stageElement.off('mousemove', handleMouseMove)
+          stageElement.off('mouseup mouseleave', handleFinishInsertShape)
+        }
+
+        stageElement.on('mousemove', handleMouseMove)
+        stageElement.on('mouseup mouseleave', handleFinishInsertShape)
+        break
+      }
+      case SHAPES.line: {
+        const layerOffset = drawLayerElement.offset()
+
+        const x1 = event.evt.offsetX + layerOffset.x
+        const y1 = event.evt.offsetY + layerOffset.y
+        let x2 = event.evt.offsetX + layerOffset.x
+        let y2 = event.evt.offsetY + layerOffset.y
+
+        const newLine = new Konva.Line({
+          stroke: selectedFillColor,
+          strokeWidth: selectedStrokeWidth,
+          visible: false
+        })
+
+        drawLayerElement.add(newLine)
+
+        const handleMouseMove = (moveEvent: Konva.KonvaEventObject<MouseEvent>) => {
+          moveEvent.evt.preventDefault()
+          const vector2D = stageElement.getPointerPosition()
+
+          if (!vector2D) {
+            return
+          }
+
+          x2 = vector2D.x + layerOffset.x
+          y2 = vector2D.y + layerOffset.y
+
+          newLine.setAttrs({
+            points: [x1, y1, x2, y2],
+            visible: true
+          })
+        }
+
+        const handleFinishInsertShape = (mouseEvent: Konva.KonvaEventObject<MouseEvent>) => {
+          mouseEvent.evt.preventDefault()
+
+          const newLineConfig: LineConfig = {
+            ...newLine.getAttrs(),
+            id: uuidV4(),
+            type: selectedShape,
+            hitStrokeWidth: LINE_HIT_STROKE_WIDTH
+          }
+
+          newLine.remove()
+          setShapeConfigList((currentConfigList) =>
+            newLineConfig.visible ? [...currentConfigList, newLineConfig] : currentConfigList
+          )
+
+          stageElement.off('mousemove', handleMouseMove)
+          stageElement.off('mouseup mouseleave', handleFinishInsertShape)
+        }
+
+        stageElement.on('mousemove', handleMouseMove)
+        stageElement.on('mouseup mouseleave', handleFinishInsertShape)
+        break
+      }
+      case SHAPES.arrow: {
+        const layerOffset = drawLayerElement.offset()
+
+        const x1 = event.evt.offsetX + layerOffset.x
+        const y1 = event.evt.offsetY + layerOffset.y
+        let x2 = event.evt.offsetX + layerOffset.x
+        let y2 = event.evt.offsetY + layerOffset.y
+
+        const newArrow = new Konva.Arrow({
+          fill: selectedFillColor,
+          stroke: selectedFillColor,
+          strokeWidth: selectedStrokeWidth,
+          points: [x1, y1, x2, y2],
+          visible: false
+        })
+
+        drawLayerElement.add(newArrow)
+
+        const handleMouseMove = (moveEvent: Konva.KonvaEventObject<MouseEvent>) => {
+          moveEvent.evt.preventDefault()
+          const vector2D = stageElement.getPointerPosition()
+
+          if (!vector2D) {
+            return
+          }
+
+          x2 = vector2D.x + layerOffset.x
+          y2 = vector2D.y + layerOffset.y
+
+          // 線の長さに応じて矢印のポインタのサイズを変更する
+          const pointerSize = Math.min(
+            (Math.abs(x2 - x1) + Math.abs(y2 - y1)) * 0.1,
+            MAX_ARROW_POINTER_WIDTH
+          )
+
+          newArrow.setAttrs({
+            points: [x1, y1, x2, y2],
+            visible: true,
+            pointerLength: pointerSize,
+            pointerWidth: pointerSize
+          })
+        }
+
+        const handleFinishInsertShape = (mouseEvent: Konva.KonvaEventObject<MouseEvent>) => {
+          mouseEvent.evt.preventDefault()
+          if (!stageElement) {
+            return
+          }
+
+          const newArrowConfig: ArrowConfig = {
+            ...newArrow.getAttrs(),
+            id: uuidV4(),
+            type: selectedShape,
+            hitStrokeWidth: LINE_HIT_STROKE_WIDTH
+          }
+
+          newArrow.remove()
+          setShapeConfigList((currentConfigList) =>
+            newArrowConfig.visible ? [...currentConfigList, newArrowConfig] : currentConfigList
           )
 
           stageElement.off('mousemove', handleMouseMove)

@@ -5,7 +5,7 @@ import { MIN_SHAPE_HEIGHT, MIN_SHAPE_WIDTH } from '@/constants'
 import { ShapeConfig } from '@/types'
 
 export const useTransform = (
-  element: Konva.Rect | Konva.Ellipse | Konva.Text | Konva.Line | Konva.Group | null,
+  element: Konva.Rect | Konva.Ellipse | Konva.Text | Konva.Group | null,
   setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
 ) => {
   const onDragEnd = useCallback(

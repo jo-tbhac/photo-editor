@@ -26,3 +26,13 @@ export const SHAPES = {
 export const DEFAULT_ROUNDED_RECT_CORNER_RADIUS = 10
 export const MIN_SHAPE_HEIGHT = 10
 export const MIN_SHAPE_WIDTH = 10
+
+export const LINE_HIT_STROKE_WIDTH = 20
+export const MAX_ARROW_POINTER_WIDTH = 12
+
+// KonvaのTransformerのスタイルに合わせる
+export const TRANSFORMER_ANCHOR_STROKE = 'rgb(0, 161, 255)'
+export const TRANSFORMER_ANCHOR_FILL = 'rgb(255, 255, 255)'
+export const TRANSFORMER_ANCHOR_HEIGHT = 10
+export const TRANSFORMER_ANCHOR_WIDTH = 10
+export const TRANSFORMER_ANCHOR_STROKE_WIDTH = 1
