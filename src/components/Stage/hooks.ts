@@ -18,6 +18,7 @@ import {
 } from '@/styles/constants'
 import {
   ArrowConfig,
+  FreeLineConfig,
   LineConfig,
   OvalConfig,
   RectConfig,
@@ -338,6 +339,57 @@ export const useDrawShape = ({
           newArrow.remove()
           setShapeConfigList((currentConfigList) =>
             newArrowConfig.visible ? [...currentConfigList, newArrowConfig] : currentConfigList
+          )
+
+          stageElement.off('mousemove', handleMouseMove)
+          stageElement.off('mouseup mouseleave', handleFinishInsertShape)
+        }
+
+        stageElement.on('mousemove', handleMouseMove)
+        stageElement.on('mouseup mouseleave', handleFinishInsertShape)
+        break
+      }
+      case SHAPES.pen: {
+        const newFreeLine = new Konva.Line({
+          stroke: selectedFillColor,
+          strokeWidth: selectedStrokeWidth,
+          visible: false,
+          points: [event.evt.offsetX, event.evt.offsetY]
+        })
+
+        drawLayerElement.add(newFreeLine)
+
+        const handleMouseMove = (moveEvent: Konva.KonvaEventObject<MouseEvent>) => {
+          moveEvent.evt.preventDefault()
+          const vector2D = stageElement.getPointerPosition()
+
+          if (!vector2D) {
+            return
+          }
+
+          const currentPoints = newFreeLine.points()
+
+          newFreeLine.setAttrs({
+            points: [...currentPoints, vector2D.x, vector2D.y],
+            visible: true
+          })
+        }
+
+        const handleFinishInsertShape = (mouseEvent: Konva.KonvaEventObject<MouseEvent>) => {
+          mouseEvent.evt.preventDefault()
+
+          const newFreeLineConfig: FreeLineConfig = {
+            ...newFreeLine.getAttrs(),
+            id: uuidV4(),
+            type: selectedShape,
+            hitStrokeWidth: LINE_HIT_STROKE_WIDTH
+          }
+
+          newFreeLine.remove()
+          setShapeConfigList((currentConfigList) =>
+            newFreeLineConfig.visible
+              ? [...currentConfigList, newFreeLineConfig]
+              : currentConfigList
           )
 
           stageElement.off('mousemove', handleMouseMove)

@@ -29,7 +29,18 @@ export interface ArrowConfig extends Konva.ArrowConfig {
   type: typeof SHAPES.arrow
 }
 
-export type ShapeConfig = RectConfig | RoundedRectConfig | OvalConfig | LineConfig | ArrowConfig
+export interface FreeLineConfig extends Konva.LineConfig {
+  id: string
+  type: typeof SHAPES.pen
+}
+
+export type ShapeConfig =
+  | RectConfig
+  | RoundedRectConfig
+  | OvalConfig
+  | LineConfig
+  | ArrowConfig
+  | FreeLineConfig
 
 export interface LinePointsPosition {
   x1: number
