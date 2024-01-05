@@ -1,4 +1,6 @@
-import { Shapes } from '@/types'
+import { Dispatch, SetStateAction } from 'react'
+
+import { ShapeConfig, Shapes } from '@/types'
 
 export interface EditorRootPresenterProps {
   imageSource: string | null
@@ -9,4 +11,8 @@ export interface EditorRootPresenterProps {
   setSelectedStrokeWidth: (strokeWidth: number) => void
   selectedShape: Shapes | null
   setSelectedShape: (shape: Shapes | null) => void
+  shapeConfigList: ShapeConfig[]
+  setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
+  selectedShapeIds: string[]
+  setSelectedShapeIds: Dispatch<SetStateAction<string[]>>
 }

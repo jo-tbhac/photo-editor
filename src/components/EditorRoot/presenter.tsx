@@ -17,7 +17,11 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
   selectedStrokeWidth,
   setSelectedStrokeWidth,
   selectedShape,
-  setSelectedShape
+  setSelectedShape,
+  shapeConfigList,
+  setShapeConfigList,
+  selectedShapeIds,
+  setSelectedShapeIds
 }) => {
   if (imageSource == null) {
     return (
@@ -38,12 +42,18 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
           setSelectedStrokeWidth={setSelectedStrokeWidth}
           selectedShape={selectedShape}
           setSelectedShape={setSelectedShape}
+          selectedShapeIds={selectedShapeIds}
+          setShapeConfigList={setShapeConfigList}
         />
         <Stage
           imageSource={imageSource}
           selectedFillColor={selectedFillColor}
           selectedStrokeWidth={selectedStrokeWidth}
           selectedShape={selectedShape}
+          shapeConfigList={shapeConfigList}
+          setShapeConfigList={setShapeConfigList}
+          selectedShapeIds={selectedShapeIds}
+          setSelectedShapeIds={setSelectedShapeIds}
         />
       </div>
     </div>

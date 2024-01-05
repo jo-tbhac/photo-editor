@@ -1,4 +1,6 @@
-import { Shapes } from '@/types'
+import { Dispatch, SetStateAction } from 'react'
+
+import { ShapeConfig, Shapes } from '@/types'
 
 export interface ToolBarProps {
   selectedFillColor: string
@@ -7,6 +9,15 @@ export interface ToolBarProps {
   setSelectedStrokeWidth: (strokeWidth: number) => void
   selectedShape: Shapes | null
   setSelectedShape: (shape: Shapes | null) => void
+  selectedShapeIds: string[]
+  setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
 }
 
-export type ToolBarPresenterProps = ToolBarProps
+export interface ToolBarPresenterProps {
+  selectedFillColor: string
+  selectedStrokeWidth: number
+  setSelectedStrokeWidth: (strokeWidth: number) => void
+  selectedShape: Shapes | null
+  setSelectedShape: (shape: Shapes | null) => void
+  handleChangeFillColor: (fillColor: string) => void
+}

@@ -1,7 +1,7 @@
 import Konva from 'konva'
 import { FC, useRef, useState } from 'react'
 
-import { ShapeConfig, TextEditorPosition } from '@/types'
+import { TextEditorPosition } from '@/types'
 
 import { useDrawShape, useHandleKeyDown, useImage, useImageSize } from './hooks'
 import { StagePresenter } from './presenter'
@@ -11,13 +11,15 @@ export const Stage: FC<StageProps> = ({
   imageSource,
   selectedFillColor,
   selectedStrokeWidth,
-  selectedShape
+  selectedShape,
+  shapeConfigList,
+  setShapeConfigList,
+  selectedShapeIds,
+  setSelectedShapeIds
 }) => {
   const stageRef = useRef<Konva.Stage>(null)
   const drawLayerRef = useRef<Konva.Layer>(null)
 
-  const [shapeConfigList, setShapeConfigList] = useState<ShapeConfig[]>([])
-  const [selectedShapeIds, setSelectedShapeIds] = useState<string[]>([])
   const [textEditorPosition, setTextEditorPosition] = useState<TextEditorPosition | null>(null)
 
   const imageElement = useImage(imageSource)

@@ -1,4 +1,6 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
+
+import { ShapeConfig } from '@/types'
 
 import {
   useImageSource,
@@ -9,6 +11,9 @@ import {
 import { EditorRootPresenter } from './presenter'
 
 export const EditorRoot: FC = () => {
+  const [shapeConfigList, setShapeConfigList] = useState<ShapeConfig[]>([])
+  const [selectedShapeIds, setSelectedShapeIds] = useState<string[]>([])
+
   const { imageSource, setImageSource } = useImageSource()
   const { selectedFillColor, setSelectedFillColor } = useSelectedFillColor()
   const { selectedStrokeWidth, setSelectedStrokeWidth } = useSelectedStrokeWidth()
@@ -24,6 +29,10 @@ export const EditorRoot: FC = () => {
       setSelectedStrokeWidth={setSelectedStrokeWidth}
       selectedShape={selectedShape}
       setSelectedShape={setSelectedShape}
+      shapeConfigList={shapeConfigList}
+      setShapeConfigList={setShapeConfigList}
+      selectedShapeIds={selectedShapeIds}
+      setSelectedShapeIds={setSelectedShapeIds}
     />
   )
 }

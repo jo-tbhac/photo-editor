@@ -9,7 +9,7 @@ import { FillColorSelectPresenterProps } from './types'
 
 export const FillColorSelectPresenter: FC<FillColorSelectPresenterProps> = ({
   selectedFillColor,
-  setSelectedFillColor
+  handleChangeFillColor
 }) => {
   const anchorEl = useRef<HTMLButtonElement>(null)
 
@@ -56,7 +56,7 @@ export const FillColorSelectPresenter: FC<FillColorSelectPresenterProps> = ({
               css={styles.button}
               style={{ backgroundColor: color }}
               onClick={() => {
-                setSelectedFillColor(color)
+                handleChangeFillColor(color)
                 closePopover()
               }}
             />

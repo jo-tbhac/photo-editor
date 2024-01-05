@@ -8,6 +8,10 @@ export interface StageProps {
   selectedFillColor: string
   selectedStrokeWidth: number
   selectedShape: Shapes | null
+  shapeConfigList: ShapeConfig[]
+  setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
+  selectedShapeIds: string[]
+  setSelectedShapeIds: Dispatch<SetStateAction<string[]>>
 }
 
 export interface StagePresenterProps {
