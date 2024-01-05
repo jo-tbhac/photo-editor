@@ -24,7 +24,8 @@ import {
   RectConfig,
   RoundedRectConfig,
   ShapeConfig,
-  Shapes
+  Shapes,
+  TextEditorPosition
 } from '@/types'
 
 export const useImage = (source: string) => {
@@ -83,7 +84,8 @@ export const useDrawShape = ({
   selectedFillColor,
   selectedStrokeWidth,
   selectedShape,
-  setShapeConfigList
+  setShapeConfigList,
+  setTextEditorPosition
 }: {
   stageElement: Konva.Stage | null
   drawLayerElement: Konva.Layer | null
@@ -91,6 +93,7 @@ export const useDrawShape = ({
   selectedStrokeWidth: number
   selectedShape: Shapes | null
   setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
+  setTextEditorPosition: Dispatch<SetStateAction<TextEditorPosition | null>>
 }) => {
   const handleMouseDownStage = (event: Konva.KonvaEventObject<MouseEvent>) => {
     if (!stageElement || !drawLayerElement) {
@@ -398,6 +401,19 @@ export const useDrawShape = ({
 
         stageElement.on('mousemove', handleMouseMove)
         stageElement.on('mouseup mouseleave', handleFinishInsertShape)
+        break
+      }
+      case SHAPES.text: {
+        event.evt.preventDefault()
+        event.evt.stopPropagation()
+
+        const { offsetX, offsetY } = event.evt
+        setTextEditorPosition({
+          stageX: event.evt.pageX - offsetX,
+          stageY: event.evt.pageY - offsetY,
+          offsetX,
+          offsetY
+        })
         break
       }
     }

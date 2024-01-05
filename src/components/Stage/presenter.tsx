@@ -1,13 +1,16 @@
 import { Theme, css } from '@emotion/react'
-import { FC } from 'react'
+import Konva from 'konva'
+import { FC, useRef } from 'react'
 import { Image, Layer, Stage } from 'react-konva'
 
+import { TextEditor } from '@/components/TextEditor'
 import { Arrow } from '@/components/shapes/Arrow'
 import { FreeLine } from '@/components/shapes/FreeLine'
 import { Line } from '@/components/shapes/Line'
 import { Oval } from '@/components/shapes/Oval'
 import { Rect } from '@/components/shapes/Rect'
 import { RoundedRect } from '@/components/shapes/RoundedRect'
+import { Text } from '@/components/shapes/Text'
 import { SHAPES } from '@/constants'
 
 import { StagePresenterProps } from './types'
@@ -17,13 +20,18 @@ export const StagePresenter: FC<StagePresenterProps> = ({
   drawLayerRef,
   imageElement,
   imageSize,
+  selectedFillColor,
   disabledSelect,
   shapeConfigList,
   setShapeConfigList,
   selectedShapeIds,
   setSelectedShapeIds,
+  textEditorPosition,
+  setTextEditorPosition,
   handleMouseDownStage
 }) => {
+  const editTextRef = useRef<Konva.Text | null>(null)
+
   const onMouseDownStageContainer = () => {
     setSelectedShapeIds([])
   }
@@ -112,12 +120,35 @@ export const StagePresenter: FC<StagePresenterProps> = ({
                     setShapeConfigList={setShapeConfigList}
                   />
                 )
+              case SHAPES.text:
+                return (
+                  <Text
+                    {...shapeConfig}
+                    key={shapeConfig.id}
+                    disabledSelect={disabledSelect}
+                    editTextRef={editTextRef}
+                    selected={selectedShapeIds.includes(shapeConfig.id)}
+                    setSelectedShapeIds={setSelectedShapeIds}
+                    setShapeConfigList={setShapeConfigList}
+                    setTextEditorPosition={setTextEditorPosition}
+                  />
+                )
               default:
                 return null
             }
           })}
         </Layer>
       </Stage>
+      {textEditorPosition && (
+        <TextEditor
+          drawLayerElement={drawLayerRef.current}
+          editTextRef={editTextRef}
+          selectedFillColor={selectedFillColor}
+          position={textEditorPosition}
+          setTextEditorPosition={setTextEditorPosition}
+          setShapeConfigList={setShapeConfigList}
+        />
+      )}
     </div>
   )
 }

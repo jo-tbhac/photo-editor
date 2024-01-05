@@ -1,7 +1,7 @@
 import Konva from 'konva'
 import { FC, useRef, useState } from 'react'
 
-import { ShapeConfig } from '@/types'
+import { ShapeConfig, TextEditorPosition } from '@/types'
 
 import { useDrawShape, useImage, useImageSize } from './hooks'
 import { StagePresenter } from './presenter'
@@ -18,6 +18,7 @@ export const Stage: FC<StageProps> = ({
 
   const [shapeConfigList, setShapeConfigList] = useState<ShapeConfig[]>([])
   const [selectedShapeIds, setSelectedShapeIds] = useState<string[]>([])
+  const [textEditorPosition, setTextEditorPosition] = useState<TextEditorPosition | null>(null)
 
   const imageElement = useImage(imageSource)
   const imageSize = useImageSize(imageElement)
@@ -28,7 +29,8 @@ export const Stage: FC<StageProps> = ({
     selectedFillColor,
     selectedStrokeWidth,
     selectedShape,
-    setShapeConfigList
+    setShapeConfigList,
+    setTextEditorPosition
   })
 
   // 図形の描画と選択が競合しないようにする
@@ -40,11 +42,14 @@ export const Stage: FC<StageProps> = ({
       drawLayerRef={drawLayerRef}
       imageElement={imageElement}
       imageSize={imageSize}
+      selectedFillColor={selectedFillColor}
       disabledSelect={disabledSelect}
       shapeConfigList={shapeConfigList}
       setShapeConfigList={setShapeConfigList}
       selectedShapeIds={selectedShapeIds}
       setSelectedShapeIds={setSelectedShapeIds}
+      textEditorPosition={textEditorPosition}
+      setTextEditorPosition={setTextEditorPosition}
       handleMouseDownStage={handleMouseDownStage}
     />
   )

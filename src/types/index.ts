@@ -34,6 +34,11 @@ export interface FreeLineConfig extends Konva.LineConfig {
   type: typeof SHAPES.pen
 }
 
+export interface TextConfig extends Konva.TextConfig {
+  id: string
+  type: typeof SHAPES.text
+}
+
 export type ShapeConfig =
   | RectConfig
   | RoundedRectConfig
@@ -41,10 +46,18 @@ export type ShapeConfig =
   | LineConfig
   | ArrowConfig
   | FreeLineConfig
+  | TextConfig
 
 export interface LinePointsPosition {
   x1: number
   y1: number
   x2: number
   y2: number
+}
+
+export interface TextEditorPosition {
+  stageX: number
+  stageY: number
+  offsetX: number
+  offsetY: number
 }

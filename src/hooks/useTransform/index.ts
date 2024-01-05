@@ -1,7 +1,13 @@
 import Konva from 'konva'
 import { Dispatch, SetStateAction, useCallback } from 'react'
 
-import { MIN_SHAPE_HEIGHT, MIN_SHAPE_WIDTH } from '@/constants'
+import {
+  MIN_FONT_SIZE,
+  MIN_SHAPE_HEIGHT,
+  MIN_SHAPE_WIDTH,
+  MIN_TEXT_STROKE_WIDTH,
+  SHAPES
+} from '@/constants'
 import { ShapeConfig } from '@/types'
 
 export const useTransform = (
@@ -35,11 +41,26 @@ export const useTransform = (
     element.scaleX(1)
     element.scaleY(1)
 
-    const newParams = {
-      ...element.getAttrs(),
-      width: Math.max(MIN_SHAPE_WIDTH, element.width() * scaleX),
-      height: Math.max(MIN_SHAPE_HEIGHT, element.height() * scaleY)
-    }
+    const newParams = (() => {
+      // Textの場合はfontSizeとStrokeWidthを更新する
+      if (element.getAttrs().type === SHAPES.text) {
+        const textScale = (scaleX + scaleY) / 2
+        const currentFontSize = element.getAttrs().fontSize
+        const currentStrokeWidth = element.getAttrs().strokeWidth
+
+        return {
+          ...element.getAttrs(),
+          fontSize: Math.max(currentFontSize * textScale, MIN_FONT_SIZE),
+          strokeWidth: Math.max(currentStrokeWidth * textScale, MIN_TEXT_STROKE_WIDTH)
+        }
+      }
+
+      return {
+        ...element.getAttrs(),
+        width: Math.max(MIN_SHAPE_WIDTH, element.width() * scaleX),
+        height: Math.max(MIN_SHAPE_HEIGHT, element.height() * scaleY)
+      }
+    })()
 
     const targetId = element.id()
 

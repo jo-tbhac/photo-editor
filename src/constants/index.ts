@@ -30,6 +30,16 @@ export const MIN_SHAPE_WIDTH = 10
 export const LINE_HIT_STROKE_WIDTH = 20
 export const MAX_ARROW_POINTER_WIDTH = 12
 
+export const DEFAULT_FONT_STYLE = 'bold'
+export const DEFAULT_FONT_SIZE = 24
+export const DEFAULT_TEXT_STROKE_WIDTH = 0.2
+export const DEFAULT_TEXT_STROKE_COLOR_LIGHT = '#fff'
+export const DEFAULT_TEXT_STROKE_COLOR_DARK = '#666'
+export const DEFAULT_TEXT_HIT_STROKE_WIDTH = 20
+export const TEXT_LETTER_SPACING = 1
+export const MIN_FONT_SIZE = 8
+export const MIN_TEXT_STROKE_WIDTH = 0.1
+
 // KonvaのTransformerのスタイルに合わせる
 export const TRANSFORMER_ANCHOR_STROKE = 'rgb(0, 161, 255)'
 export const TRANSFORMER_ANCHOR_FILL = 'rgb(255, 255, 255)'
