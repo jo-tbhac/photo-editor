@@ -57,3 +57,40 @@ export const useHandleChangeFillColor = ({
 
   return { handleChangeFillColor }
 }
+
+export const useHandleChangeStrokeWidth = ({
+  setSelectedStrokeWidth,
+  selectedShapeIds,
+  setShapeConfigList
+}: {
+  setSelectedStrokeWidth: (strokeWidth: number) => void
+  selectedShapeIds: string[]
+  setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
+}) => {
+  const handleChangeStrokeWidth = (newStrokeWidth: number) => {
+    setSelectedStrokeWidth(newStrokeWidth)
+
+    if (selectedShapeIds.length === 0) {
+      return
+    }
+
+    setShapeConfigList((currentConfigList) =>
+      currentConfigList.map((currentConfig) => {
+        if (!selectedShapeIds.includes(currentConfig.id)) {
+          return currentConfig
+        }
+
+        if (currentConfig.type === SHAPES.text) {
+          return currentConfig
+        }
+
+        return {
+          ...currentConfig,
+          strokeWidth: newStrokeWidth
+        }
+      })
+    )
+  }
+
+  return { handleChangeStrokeWidth }
+}

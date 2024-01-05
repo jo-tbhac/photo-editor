@@ -16,8 +16,8 @@ export interface ToolBarProps {
 export interface ToolBarPresenterProps {
   selectedFillColor: string
   selectedStrokeWidth: number
-  setSelectedStrokeWidth: (strokeWidth: number) => void
   selectedShape: Shapes | null
   setSelectedShape: (shape: Shapes | null) => void
   handleChangeFillColor: (fillColor: string) => void
+  handleChangeStrokeWidth: (strokeWidth: number) => void
 }

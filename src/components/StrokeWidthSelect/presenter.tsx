@@ -9,7 +9,7 @@ import { StrokeWidthSelectPresenterProps } from './types'
 
 export const StrokeWidthSelectPresenter: FC<StrokeWidthSelectPresenterProps> = ({
   selectedStrokeWidth,
-  setSelectedStrokeWidth
+  handleChangeStrokeWidth
 }) => {
   const anchorEl = useRef<HTMLButtonElement>(null)
 
@@ -51,7 +51,7 @@ export const StrokeWidthSelectPresenter: FC<StrokeWidthSelectPresenterProps> = (
               type="button"
               css={styles.listButton}
               onClick={() => {
-                setSelectedStrokeWidth(width)
+                handleChangeStrokeWidth(width)
                 closePopover()
               }}
             >

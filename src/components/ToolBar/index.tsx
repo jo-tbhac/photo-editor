@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { useHandleChangeFillColor } from './hooks'
+import { useHandleChangeFillColor, useHandleChangeStrokeWidth } from './hooks'
 import { ToolBarPresenter } from './presenter'
 import { ToolBarProps } from './types'
 
@@ -20,14 +20,20 @@ export const ToolBar: FC<ToolBarProps> = ({
     setShapeConfigList
   })
 
+  const { handleChangeStrokeWidth } = useHandleChangeStrokeWidth({
+    setSelectedStrokeWidth,
+    selectedShapeIds,
+    setShapeConfigList
+  })
+
   return (
     <ToolBarPresenter
       selectedFillColor={selectedFillColor}
       selectedStrokeWidth={selectedStrokeWidth}
-      setSelectedStrokeWidth={setSelectedStrokeWidth}
       selectedShape={selectedShape}
       setSelectedShape={setSelectedShape}
       handleChangeFillColor={handleChangeFillColor}
+      handleChangeStrokeWidth={handleChangeStrokeWidth}
     />
   )
 }

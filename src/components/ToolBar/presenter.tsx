@@ -20,10 +20,10 @@ import { ToolBarPresenterProps } from './types'
 export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
   selectedFillColor,
   selectedStrokeWidth,
-  setSelectedStrokeWidth,
   selectedShape,
   setSelectedShape,
-  handleChangeFillColor
+  handleChangeFillColor,
+  handleChangeStrokeWidth
 }) => {
   const onClickRect = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
@@ -114,7 +114,7 @@ export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
 
       <StrokeWidthSelect
         selectedStrokeWidth={selectedStrokeWidth}
-        setSelectedStrokeWidth={setSelectedStrokeWidth}
+        handleChangeStrokeWidth={handleChangeStrokeWidth}
       />
     </div>
   )

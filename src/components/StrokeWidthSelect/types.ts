@@ -1,6 +1,6 @@
 export interface StrokeWidthSelectProps {
   selectedStrokeWidth: number
-  setSelectedStrokeWidth: (strokeWidth: number) => void
+  handleChangeStrokeWidth: (strokeWidth: number) => void
 }
 
 export type StrokeWidthSelectPresenterProps = StrokeWidthSelectProps
