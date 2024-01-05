@@ -3,7 +3,7 @@ import { FC, useRef, useState } from 'react'
 
 import { ShapeConfig, TextEditorPosition } from '@/types'
 
-import { useDrawShape, useImage, useImageSize } from './hooks'
+import { useDrawShape, useHandleKeyDown, useImage, useImageSize } from './hooks'
 import { StagePresenter } from './presenter'
 import { StageProps } from './types'
 
@@ -31,6 +31,12 @@ export const Stage: FC<StageProps> = ({
     selectedShape,
     setShapeConfigList,
     setTextEditorPosition
+  })
+
+  useHandleKeyDown({
+    selectedShapeIds,
+    setSelectedShapeIds,
+    setShapeConfigList
   })
 
   // 図形の描画と選択が競合しないようにする

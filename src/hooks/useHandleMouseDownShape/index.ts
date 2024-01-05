@@ -13,10 +13,10 @@ export const useHandleMouseDownShape = (
         return currentIds
       }
       if (event.evt.shiftKey) {
-        return [shapeId]
+        return [...currentIds, shapeId]
       }
 
-      return [...currentIds, shapeId]
+      return [shapeId]
     })
   }
 
