@@ -1,3 +1,4 @@
+import * as CSS from 'csstype'
 import Konva from 'konva'
 import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { v4 as uuidV4 } from 'uuid'
@@ -466,4 +467,72 @@ export const useHandleKeyDown = ({
       document.removeEventListener('keydown', handleKeyDown)
     }
   }, [selectedShapeIds, setSelectedShapeIds, setShapeConfigList])
+}
+
+export const useCursorStyle = ({
+  stageElement,
+  shapeConfigList,
+  selectedShape
+}: {
+  stageElement: Konva.Stage | null
+  shapeConfigList: ShapeConfig[]
+  selectedShape: Shapes | null
+}) => {
+  const [cursorStyle, setCursorStyle] = useState<CSS.Property.Cursor>('default')
+
+  useEffect(() => {
+    setCursorStyle(() => {
+      switch (selectedShape) {
+        case SHAPES.rect:
+        case SHAPES.oval:
+        case SHAPES.roundedRect:
+        case SHAPES.line:
+        case SHAPES.arrow:
+        case SHAPES.pen:
+          return 'crosshair'
+        case SHAPES.text:
+          return 'text'
+        default:
+          return 'default'
+      }
+    })
+  }, [selectedShape])
+
+  useEffect(() => {
+    if (!stageElement) {
+      return
+    }
+
+    const selectorList: string[] = []
+    for (const shapeConfig of shapeConfigList) {
+      selectorList.push(`#${shapeConfig.id}`)
+    }
+
+    const targetShapes = stageElement.find(selectorList.join(','))
+
+    const onMouseEnter = () => {
+      if (!selectedShape) {
+        setCursorStyle('move')
+      }
+    }
+    const onMouseLeave = () => {
+      if (!selectedShape) {
+        setCursorStyle('default')
+      }
+    }
+
+    for (const shape of targetShapes) {
+      shape.on('mouseenter', onMouseEnter)
+      shape.on('mouseleave', onMouseLeave)
+    }
+
+    return () => {
+      for (const shape of targetShapes) {
+        shape.off('mouseenter', onMouseEnter)
+        shape.off('mouseleave', onMouseLeave)
+      }
+    }
+  }, [selectedShape, shapeConfigList, stageElement])
+
+  return cursorStyle
 }

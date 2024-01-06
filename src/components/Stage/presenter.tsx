@@ -28,7 +28,8 @@ export const StagePresenter: FC<StagePresenterProps> = ({
   setSelectedShapeIds,
   textEditorPosition,
   setTextEditorPosition,
-  handleMouseDownStage
+  handleMouseDownStage,
+  cursorStyle
 }) => {
   const editTextRef = useRef<Konva.Text | null>(null)
 
@@ -37,7 +38,11 @@ export const StagePresenter: FC<StagePresenterProps> = ({
   }
 
   return (
-    <div css={styles.container} onMouseDown={onMouseDownStageContainer}>
+    <div
+      css={styles.container}
+      style={{ cursor: cursorStyle }}
+      onMouseDown={onMouseDownStageContainer}
+    >
       <Stage
         ref={stageRef}
         width={imageSize?.width}

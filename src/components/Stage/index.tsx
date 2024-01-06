@@ -3,7 +3,7 @@ import { FC, useRef, useState } from 'react'
 
 import { TextEditorPosition } from '@/types'
 
-import { useDrawShape, useHandleKeyDown, useImage, useImageSize } from './hooks'
+import { useCursorStyle, useDrawShape, useHandleKeyDown, useImage, useImageSize } from './hooks'
 import { StagePresenter } from './presenter'
 import { StageProps } from './types'
 
@@ -41,6 +41,12 @@ export const Stage: FC<StageProps> = ({
     setShapeConfigList
   })
 
+  const cursorStyle = useCursorStyle({
+    stageElement: stageRef.current,
+    shapeConfigList,
+    selectedShape
+  })
+
   // 図形の描画と選択が競合しないようにする
   const disabledSelect = selectedShape != null
 
@@ -59,6 +65,7 @@ export const Stage: FC<StageProps> = ({
       textEditorPosition={textEditorPosition}
       setTextEditorPosition={setTextEditorPosition}
       handleMouseDownStage={handleMouseDownStage}
+      cursorStyle={cursorStyle}
     />
   )
 }

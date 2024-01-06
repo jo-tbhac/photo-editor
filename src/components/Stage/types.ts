@@ -1,3 +1,4 @@
+import * as CSS from 'csstype'
 import Konva from 'konva'
 import { Dispatch, RefObject, SetStateAction } from 'react'
 
@@ -28,4 +29,5 @@ export interface StagePresenterProps {
   textEditorPosition: TextEditorPosition | null
   setTextEditorPosition: Dispatch<SetStateAction<TextEditorPosition | null>>
   handleMouseDownStage: (event: Konva.KonvaEventObject<MouseEvent>) => void
+  cursorStyle: CSS.Property.Cursor
 }
