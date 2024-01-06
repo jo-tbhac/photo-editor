@@ -25,7 +25,7 @@ export const FillColorSelectPresenter: FC<FillColorSelectPresenterProps> = ({
 
   return (
     <>
-      <Tooltip title="線の色" placement="right">
+      <Tooltip title="Fill" placement="right">
         <button
           ref={anchorEl}
           type="button"

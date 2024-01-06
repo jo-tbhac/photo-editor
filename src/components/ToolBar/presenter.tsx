@@ -63,43 +63,43 @@ export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
   return (
     <div css={styles.container}>
       <ToolBarButton
-        tooltipText="四角形を挿入"
+        tooltipText="Rectangle"
         active={selectedShape === SHAPES.rect}
         Icon={<FontAwesomeIcon icon={faSquare} css={styles.icon} />}
         onClick={onClickRect}
       />
       <ToolBarButton
-        tooltipText="角丸四角形を挿入"
+        tooltipText="Rounded rectangle"
         active={selectedShape === SHAPES.roundedRect}
         Icon={<RoundedIcon css={styles.icon} />}
         onClick={onClickRoundedRect}
       />
       <ToolBarButton
-        tooltipText="円形を挿入"
+        tooltipText="Ellipse"
         active={selectedShape === SHAPES.oval}
         Icon={<FontAwesomeIcon icon={faCircle} css={styles.icon} />}
         onClick={onClickOval}
       />
       <ToolBarButton
-        tooltipText="矢印を挿入"
+        tooltipText="Arrow"
         active={selectedShape === SHAPES.arrow}
         Icon={<FontAwesomeIcon icon={faArrowDown} css={styles.icon} />}
         onClick={onClickArrow}
       />
       <ToolBarButton
-        tooltipText="直線を挿入"
+        tooltipText="Line"
         active={selectedShape === SHAPES.line}
         Icon={<LineIcon css={styles.icon} />}
         onClick={onClickLine}
       />
       <ToolBarButton
-        tooltipText="画像の上に描く"
+        tooltipText="Pencil"
         active={selectedShape === SHAPES.pen}
         Icon={<FontAwesomeIcon icon={faPen} css={styles.icon} />}
         onClick={onClickPen}
       />
       <ToolBarButton
-        tooltipText="テキストを挿入"
+        tooltipText="Text"
         active={selectedShape === SHAPES.text}
         Icon={<FontAwesomeIcon icon={faFont} css={styles.icon} />}
         onClick={onClickText}

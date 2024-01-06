@@ -11,11 +11,17 @@ export const HeaderPresenter: FC<HeaderPresenterProps> = ({ cancelEdit, exportIm
   return (
     <div css={styles.container}>
       <div css={styles.buttonContainer}>
-        <Button variant="outlined" onClick={cancelEdit}>
-          編集をやめる
+        <Button css={styles.button} variant="outlined" onClick={cancelEdit}>
+          Cancel
         </Button>
-        <Button variant="contained" onClick={exportImage} disabled={saving} disableRipple>
-          画像を書き出す
+        <Button
+          css={styles.button}
+          variant="contained"
+          onClick={exportImage}
+          disabled={saving}
+          disableRipple
+        >
+          Export
           {saving && (
             <CircularProgress css={styles.progress} size={24} thickness={5} disableShrink />
           )}
@@ -39,6 +45,9 @@ const styles = {
     flex: 1;
     gap: ${theme.styles.margin.small};
     justify-content: flex-end;
+  `,
+  button: css`
+    min-width: 120px;
   `,
   progress: css`
     position: absolute;

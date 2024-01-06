@@ -20,7 +20,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             root: {
               boxShadow: 'initial',
               fontWeight: styles.fontWeight.normal,
-              padding: `${styles.padding.xxSmall} ${styles.padding.small}`
+              padding: `${styles.padding.xxSmall} ${styles.padding.small}`,
+              textTransform: 'none'
             }
           }
         }
