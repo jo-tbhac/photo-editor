@@ -1,12 +1,13 @@
 import { FC } from 'react'
 
+import { useBeforeUnload } from './hooks'
 import { HeaderPresenter } from './presenter'
-import { HeaderProps } from './types'
 
-export const Header: FC<HeaderProps> = ({ setImageSource }) => {
+export const Header: FC = () => {
+  useBeforeUnload()
+
   const cancelEdit = () => {
-    // TODO confirm
-    setImageSource(null)
+    window.location.reload()
   }
 
   return <HeaderPresenter cancelEdit={cancelEdit} />

@@ -33,7 +33,7 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
 
   return (
     <div css={styles.contentContainer}>
-      <Header setImageSource={setImageSource} />
+      <Header />
       <div css={styles.body}>
         <ToolBar
           selectedFillColor={selectedFillColor}
