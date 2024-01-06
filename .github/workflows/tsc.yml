@@ -1,0 +1,30 @@
+name: tsc
+
+on: push
+
+jobs:
+  check-types:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.12.1]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install npm packages
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Run tsc
+        run: npm run tsc
