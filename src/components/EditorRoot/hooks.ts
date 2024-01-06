@@ -3,7 +3,8 @@ import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'reac
 import { FILL_COLOR_LIST, STROKE_WIDTH_LIST } from '@/constants'
 import { ShapeConfig, Shapes } from '@/types'
 
-export const useImageSource = () => {
+export const useImage = () => {
+  const [imageElement, setImageElement] = useState<HTMLImageElement | undefined>(undefined)
   const [imageSource, setImageSourceState] = useState<string | null>(null)
 
   const setImageSource = useCallback((newSource: string | null) => {
@@ -15,7 +16,33 @@ export const useImageSource = () => {
     })
   }, [])
 
-  return { imageSource, setImageSource }
+  useEffect(() => {
+    if (!imageSource) {
+      return
+    }
+
+    const img = document.createElement('img')
+
+    const onLoad = () => {
+      setImageElement(img)
+    }
+
+    const onError = () => {
+      setImageElement(undefined)
+      throw new Error('image load error')
+    }
+
+    img.addEventListener('load', onLoad)
+    img.addEventListener('error', onError)
+    img.src = imageSource
+
+    return () => {
+      img.removeEventListener('load', onLoad)
+      img.removeEventListener('error', onError)
+    }
+  }, [imageSource])
+
+  return { imageElement, setImageSource }
 }
 
 export const useSelectedFillColor = () => {

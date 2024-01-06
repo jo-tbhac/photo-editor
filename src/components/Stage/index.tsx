@@ -3,12 +3,14 @@ import { FC, useRef, useState } from 'react'
 
 import { TextEditorPosition } from '@/types'
 
-import { useCursorStyle, useDrawShape, useImage, useImageSize } from './hooks'
+import { useCursorStyle, useDrawShape, useImageSize } from './hooks'
 import { StagePresenter } from './presenter'
 import { StageProps } from './types'
 
 export const Stage: FC<StageProps> = ({
-  imageSource,
+  stageElement,
+  stageRefCallback,
+  imageElement,
   selectedFillColor,
   selectedStrokeWidth,
   selectedShape,
@@ -18,16 +20,14 @@ export const Stage: FC<StageProps> = ({
   setSelectedShapeIds,
   setSelectedShape
 }) => {
-  const stageRef = useRef<Konva.Stage>(null)
   const drawLayerRef = useRef<Konva.Layer>(null)
 
   const [textEditorPosition, setTextEditorPosition] = useState<TextEditorPosition | null>(null)
 
-  const imageElement = useImage(imageSource)
   const imageSize = useImageSize(imageElement)
 
   const { handleMouseDownStage } = useDrawShape({
-    stageElement: stageRef.current,
+    stageElement,
     drawLayerElement: drawLayerRef.current,
     selectedFillColor,
     selectedStrokeWidth,
@@ -37,7 +37,7 @@ export const Stage: FC<StageProps> = ({
   })
 
   const cursorStyle = useCursorStyle({
-    stageElement: stageRef.current,
+    stageElement,
     shapeConfigList,
     selectedShape
   })
@@ -52,7 +52,7 @@ export const Stage: FC<StageProps> = ({
 
   return (
     <StagePresenter
-      stageRef={stageRef}
+      stageRefCallback={stageRefCallback}
       drawLayerRef={drawLayerRef}
       imageElement={imageElement}
       imageSize={imageSize}

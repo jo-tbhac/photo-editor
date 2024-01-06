@@ -29,34 +29,6 @@ import {
   TextEditorPosition
 } from '@/types'
 
-export const useImage = (source: string) => {
-  const [imageElement, setImageElement] = useState<HTMLImageElement | undefined>(undefined)
-
-  useEffect(() => {
-    const img = document.createElement('img')
-
-    const onLoad = () => {
-      setImageElement(img)
-    }
-
-    const onError = () => {
-      setImageElement(undefined)
-      throw new Error('image load error')
-    }
-
-    img.addEventListener('load', onLoad)
-    img.addEventListener('error', onError)
-    img.src = source
-
-    return () => {
-      img.removeEventListener('load', onLoad)
-      img.removeEventListener('error', onError)
-    }
-  }, [source])
-
-  return imageElement
-}
-
 export const useImageSize = (imageElement: HTMLImageElement | undefined) => {
   return useMemo(() => {
     if (imageElement == null) {

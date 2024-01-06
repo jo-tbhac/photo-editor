@@ -46,3 +46,5 @@ export const TRANSFORMER_ANCHOR_FILL = 'rgb(255, 255, 255)'
 export const TRANSFORMER_ANCHOR_HEIGHT = 10
 export const TRANSFORMER_ANCHOR_WIDTH = 10
 export const TRANSFORMER_ANCHOR_STROKE_WIDTH = 1
+
+export const TRANSFORMER_NAME = 'transformer'

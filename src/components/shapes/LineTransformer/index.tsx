@@ -7,7 +7,8 @@ import {
   TRANSFORMER_ANCHOR_HEIGHT,
   TRANSFORMER_ANCHOR_STROKE,
   TRANSFORMER_ANCHOR_STROKE_WIDTH,
-  TRANSFORMER_ANCHOR_WIDTH
+  TRANSFORMER_ANCHOR_WIDTH,
+  TRANSFORMER_NAME
 } from '@/constants'
 
 import { useDragLineAnchor } from './hooks'
@@ -31,7 +32,7 @@ export const LineTransformer: FC<LineTransformerProps> = ({
   }
 
   return (
-    <Group>
+    <Group name={TRANSFORMER_NAME}>
       <Rect
         height={TRANSFORMER_ANCHOR_HEIGHT}
         width={TRANSFORMER_ANCHOR_WIDTH}

@@ -1,9 +1,12 @@
+import Konva from 'konva'
 import { Dispatch, SetStateAction } from 'react'
 
 import { ShapeConfig, Shapes } from '@/types'
 
 export interface EditorRootPresenterProps {
-  imageSource: string | null
+  stageElement: Konva.Stage | null
+  stageRefCallback: (node: Konva.Stage) => void
+  imageElement: HTMLImageElement | undefined
   setImageSource: (source: string | null) => void
   selectedFillColor: string
   setSelectedFillColor: (fillColor: string) => void

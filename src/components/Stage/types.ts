@@ -5,7 +5,9 @@ import { Dispatch, RefObject, SetStateAction } from 'react'
 import { ShapeConfig, Shapes, TextEditorPosition } from '@/types'
 
 export interface StageProps {
-  imageSource: string
+  stageElement: Konva.Stage | null
+  stageRefCallback: (node: Konva.Stage) => void
+  imageElement: HTMLImageElement
   selectedFillColor: string
   selectedStrokeWidth: number
   selectedShape: Shapes | null
@@ -17,9 +19,9 @@ export interface StageProps {
 }
 
 export interface StagePresenterProps {
-  stageRef: RefObject<Konva.Stage>
+  stageRefCallback: (node: Konva.Stage) => void
   drawLayerRef: RefObject<Konva.Layer>
-  imageElement: HTMLImageElement | undefined
+  imageElement: HTMLImageElement
   imageSize: { height: number; width: number } | undefined
   selectedFillColor: string
   disabledSelect: boolean

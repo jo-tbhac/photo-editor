@@ -16,7 +16,7 @@ import { SHAPES } from '@/constants'
 import { StagePresenterProps } from './types'
 
 export const StagePresenter: FC<StagePresenterProps> = ({
-  stageRef,
+  stageRefCallback,
   drawLayerRef,
   imageElement,
   imageSize,
@@ -41,7 +41,7 @@ export const StagePresenter: FC<StagePresenterProps> = ({
       onMouseDown={handleMouseDownStageContainer}
     >
       <Stage
-        ref={stageRef}
+        ref={stageRefCallback}
         width={imageSize?.width}
         height={imageSize?.height}
         onMouseDown={handleMouseDownStage}

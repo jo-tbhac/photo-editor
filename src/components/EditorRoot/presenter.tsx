@@ -10,7 +10,9 @@ import { HEADER_HEIGHT } from '@/styles/constants'
 import { EditorRootPresenterProps } from './types'
 
 export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
-  imageSource,
+  stageElement,
+  stageRefCallback,
+  imageElement,
   setImageSource,
   selectedFillColor,
   setSelectedFillColor,
@@ -23,7 +25,7 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
   selectedShapeIds,
   setSelectedShapeIds
 }) => {
-  if (imageSource == null) {
+  if (!imageElement) {
     return (
       <div css={styles.dropzoneContainer}>
         <Dropzone setImageSource={setImageSource} />
@@ -33,7 +35,7 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
 
   return (
     <div css={styles.contentContainer}>
-      <Header />
+      <Header stageElement={stageElement} imageElement={imageElement} />
       <div css={styles.body}>
         <ToolBar
           selectedFillColor={selectedFillColor}
@@ -46,7 +48,9 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
           setShapeConfigList={setShapeConfigList}
         />
         <Stage
-          imageSource={imageSource}
+          stageElement={stageElement}
+          stageRefCallback={stageRefCallback}
+          imageElement={imageElement}
           selectedFillColor={selectedFillColor}
           selectedStrokeWidth={selectedStrokeWidth}
           selectedShape={selectedShape}

@@ -1,10 +1,12 @@
+import Konva from 'konva'
 import { FC, useState } from 'react'
 
+import { useRefCallback } from '@/hooks'
 import { ShapeConfig } from '@/types'
 
 import {
   useHandleKeyDown,
-  useImageSource,
+  useImage,
   useSelectedFillColor,
   useSelectedShape,
   useSelectedStrokeWidth
@@ -12,13 +14,15 @@ import {
 import { EditorRootPresenter } from './presenter'
 
 export const EditorRoot: FC = () => {
+  const [stageElement, stageRefCallback] = useRefCallback<Konva.Stage>()
+
   const [shapeConfigList, setShapeConfigList] = useState<ShapeConfig[]>([])
   const [selectedShapeIds, setSelectedShapeIds] = useState<string[]>([])
 
-  const { imageSource, setImageSource } = useImageSource()
   const { selectedFillColor, setSelectedFillColor } = useSelectedFillColor()
   const { selectedStrokeWidth, setSelectedStrokeWidth } = useSelectedStrokeWidth()
   const { selectedShape, setSelectedShape } = useSelectedShape()
+  const { imageElement, setImageSource } = useImage()
 
   useHandleKeyDown({
     selectedShapeIds,
@@ -29,7 +33,9 @@ export const EditorRoot: FC = () => {
 
   return (
     <EditorRootPresenter
-      imageSource={imageSource}
+      stageElement={stageElement}
+      stageRefCallback={stageRefCallback}
+      imageElement={imageElement}
       setImageSource={setImageSource}
       selectedFillColor={selectedFillColor}
       setSelectedFillColor={setSelectedFillColor}
