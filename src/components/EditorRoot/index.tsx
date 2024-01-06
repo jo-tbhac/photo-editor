@@ -3,6 +3,7 @@ import { FC, useState } from 'react'
 import { ShapeConfig } from '@/types'
 
 import {
+  useHandleKeyDown,
   useImageSource,
   useSelectedFillColor,
   useSelectedShape,
@@ -18,6 +19,13 @@ export const EditorRoot: FC = () => {
   const { selectedFillColor, setSelectedFillColor } = useSelectedFillColor()
   const { selectedStrokeWidth, setSelectedStrokeWidth } = useSelectedStrokeWidth()
   const { selectedShape, setSelectedShape } = useSelectedShape()
+
+  useHandleKeyDown({
+    selectedShapeIds,
+    setSelectedShapeIds,
+    setShapeConfigList,
+    setSelectedShape
+  })
 
   return (
     <EditorRootPresenter

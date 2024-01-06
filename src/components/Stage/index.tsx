@@ -3,7 +3,7 @@ import { FC, useRef, useState } from 'react'
 
 import { TextEditorPosition } from '@/types'
 
-import { useCursorStyle, useDrawShape, useHandleKeyDown, useImage, useImageSize } from './hooks'
+import { useCursorStyle, useDrawShape, useImage, useImageSize } from './hooks'
 import { StagePresenter } from './presenter'
 import { StageProps } from './types'
 
@@ -33,12 +33,6 @@ export const Stage: FC<StageProps> = ({
     selectedShape,
     setShapeConfigList,
     setTextEditorPosition
-  })
-
-  useHandleKeyDown({
-    selectedShapeIds,
-    setSelectedShapeIds,
-    setShapeConfigList
   })
 
   const cursorStyle = useCursorStyle({

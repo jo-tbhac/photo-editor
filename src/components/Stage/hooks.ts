@@ -423,52 +423,6 @@ export const useDrawShape = ({
   return { handleMouseDownStage }
 }
 
-export const useHandleKeyDown = ({
-  selectedShapeIds,
-  setShapeConfigList,
-  setSelectedShapeIds
-}: {
-  selectedShapeIds: string[]
-  setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
-  setSelectedShapeIds: Dispatch<SetStateAction<string[]>>
-}) => {
-  useEffect(() => {
-    if (selectedShapeIds.length === 0) {
-      return
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      const { key, target } = event
-
-      if (target instanceof HTMLTextAreaElement) {
-        return
-      }
-
-      switch (key) {
-        case 'Backspace':
-        case 'Delete':
-          if (selectedShapeIds.length === 0) {
-            return
-          }
-
-          setShapeConfigList((currentConfigList) => {
-            return currentConfigList.filter(
-              (currentConfig) => !selectedShapeIds.includes(currentConfig.id)
-            )
-          })
-          setSelectedShapeIds([])
-          break
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [selectedShapeIds, setSelectedShapeIds, setShapeConfigList])
-}
-
 export const useCursorStyle = ({
   stageElement,
   shapeConfigList,
