@@ -13,6 +13,7 @@ export interface StageProps {
   setShapeConfigList: Dispatch<SetStateAction<ShapeConfig[]>>
   selectedShapeIds: string[]
   setSelectedShapeIds: Dispatch<SetStateAction<string[]>>
+  setSelectedShape: (shape: Shapes | null) => void
 }
 
 export interface StagePresenterProps {
@@ -29,5 +30,6 @@ export interface StagePresenterProps {
   textEditorPosition: TextEditorPosition | null
   setTextEditorPosition: Dispatch<SetStateAction<TextEditorPosition | null>>
   handleMouseDownStage: (event: Konva.KonvaEventObject<MouseEvent>) => void
+  handleMouseDownStageContainer: () => void
   cursorStyle: CSS.Property.Cursor
 }

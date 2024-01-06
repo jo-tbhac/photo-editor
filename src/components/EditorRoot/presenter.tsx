@@ -54,6 +54,7 @@ export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
           setShapeConfigList={setShapeConfigList}
           selectedShapeIds={selectedShapeIds}
           setSelectedShapeIds={setSelectedShapeIds}
+          setSelectedShape={setSelectedShape}
         />
       </div>
     </div>

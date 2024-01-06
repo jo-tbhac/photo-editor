@@ -15,7 +15,8 @@ export const Stage: FC<StageProps> = ({
   shapeConfigList,
   setShapeConfigList,
   selectedShapeIds,
-  setSelectedShapeIds
+  setSelectedShapeIds,
+  setSelectedShape
 }) => {
   const stageRef = useRef<Konva.Stage>(null)
   const drawLayerRef = useRef<Konva.Layer>(null)
@@ -41,6 +42,11 @@ export const Stage: FC<StageProps> = ({
     selectedShape
   })
 
+  const handleMouseDownStageContainer = () => {
+    setSelectedShape(null)
+    setSelectedShapeIds([])
+  }
+
   // 図形の描画と選択が競合しないようにする
   const disabledSelect = selectedShape != null
 
@@ -59,6 +65,7 @@ export const Stage: FC<StageProps> = ({
       textEditorPosition={textEditorPosition}
       setTextEditorPosition={setTextEditorPosition}
       handleMouseDownStage={handleMouseDownStage}
+      handleMouseDownStageContainer={handleMouseDownStageContainer}
       cursorStyle={cursorStyle}
     />
   )

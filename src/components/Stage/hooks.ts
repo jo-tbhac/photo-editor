@@ -101,6 +101,8 @@ export const useDrawShape = ({
       return
     }
 
+    event.evt.stopPropagation()
+
     switch (selectedShape) {
       case SHAPES.rect:
       case SHAPES.roundedRect: {
