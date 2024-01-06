@@ -13,7 +13,7 @@ import { ToolBarButton } from '@/components/ToolBarButton'
 import { SHAPES } from '@/constants'
 import { LineIcon } from '@/icons/Line'
 import { RoundedIcon } from '@/icons/Rounded'
-import { TOOLBAR_WIDTH } from '@/styles/constants'
+import { STAGE_CONTAINER_MIN_HEIGHT, TOOLBAR_WIDTH } from '@/styles/constants'
 
 import { ToolBarPresenterProps } from './types'
 
@@ -63,43 +63,43 @@ export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
   return (
     <div css={styles.container}>
       <ToolBarButton
-        tooltipText="四角形を挿入"
+        tooltipText="Rectangle"
         active={selectedShape === SHAPES.rect}
         Icon={<FontAwesomeIcon icon={faSquare} css={styles.icon} />}
         onClick={onClickRect}
       />
       <ToolBarButton
-        tooltipText="角丸四角形を挿入"
+        tooltipText="Rounded rectangle"
         active={selectedShape === SHAPES.roundedRect}
         Icon={<RoundedIcon css={styles.icon} />}
         onClick={onClickRoundedRect}
       />
       <ToolBarButton
-        tooltipText="円形を挿入"
+        tooltipText="Ellipse"
         active={selectedShape === SHAPES.oval}
         Icon={<FontAwesomeIcon icon={faCircle} css={styles.icon} />}
         onClick={onClickOval}
       />
       <ToolBarButton
-        tooltipText="矢印を挿入"
+        tooltipText="Arrow"
         active={selectedShape === SHAPES.arrow}
         Icon={<FontAwesomeIcon icon={faArrowDown} css={styles.icon} />}
         onClick={onClickArrow}
       />
       <ToolBarButton
-        tooltipText="直線を挿入"
+        tooltipText="Line"
         active={selectedShape === SHAPES.line}
         Icon={<LineIcon css={styles.icon} />}
         onClick={onClickLine}
       />
       <ToolBarButton
-        tooltipText="画像の上に描く"
+        tooltipText="Pencil"
         active={selectedShape === SHAPES.pen}
         Icon={<FontAwesomeIcon icon={faPen} css={styles.icon} />}
         onClick={onClickPen}
       />
       <ToolBarButton
-        tooltipText="テキストを挿入"
+        tooltipText="Text"
         active={selectedShape === SHAPES.text}
         Icon={<FontAwesomeIcon icon={faFont} css={styles.icon} />}
         onClick={onClickText}
@@ -129,6 +129,7 @@ const styles = {
     gap: ${theme.styles.margin.xxSmall};
     height: 100%;
     justify-content: center;
+    min-height: ${STAGE_CONTAINER_MIN_HEIGHT}px;
     padding: 0 ${theme.styles.padding.xSmall};
     width: ${TOOLBAR_WIDTH}px;
   `,
@@ -148,6 +149,7 @@ const styles = {
   `,
   divider: (theme: Theme) => css`
     background-color: ${theme.colors.border.main};
+    flex-shrink: 0;
     height: 1px;
     margin: ${theme.styles.margin.xSmall} 0;
     width: 100%;

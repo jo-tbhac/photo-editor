@@ -46,7 +46,7 @@ export const DropzonePresenter: FC<DropzonePresenterProps> = ({ handleSelectFile
       <div css={styles.iconContainer}>
         <FontAwesomeIcon icon={faCloudArrowUp} size="2x" />
       </div>
-      <div css={styles.description}>画像をドロップ、または選択して編集を開始</div>
+      <div css={styles.description}>Drag and drop an image file here or click.</div>
       <input ref={inputRef} type="file" css={styles.fileInput} onChange={onChangeFileInput} />
       <div
         css={styles.overlay}

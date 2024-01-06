@@ -25,7 +25,7 @@ export const StrokeWidthSelectPresenter: FC<StrokeWidthSelectPresenterProps> = (
 
   return (
     <>
-      <Tooltip title="線の太さ" placement="right">
+      <Tooltip title="Stroke width" placement="right">
         <button ref={anchorEl} type="button" css={styles.button} onClick={openPopover}>
           {selectedStrokeWidth}
         </button>
@@ -72,6 +72,7 @@ const styles = {
     border-radius: 50%;
     color: ${theme.colors.font.sub};
     cursor: pointer;
+    flex-shrink: 0;
     font-size: ${theme.styles.fontSize.small};
     height: 25px;
     margin: ${theme.styles.margin.xxSmall} 0;
