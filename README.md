@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Photo Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://www.ph-editor.com
 
-Currently, two official plugins are available:
+This is a simple photo editing application powered by Konva.js and React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
 
-## Expanding the ESLint configuration
+```
+# Clone this repository
+git clone https://github.com/jo-tbhac/photo-editor.git
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Go into the repository
+cd photo-editor
 
-- Configure the top-level `parserOptions` property like this:
+# Install dependencies
+npm install
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+# Run the app
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Credits
+
+This software uses the following open source packages:
+
+- [React](https://github.com/facebook/react)
+- [Konva](https://github.com/konvajs/konva)
+- [MUI](https://github.com/mui/material-ui)
+- [Emotion](https://github.com/emotion-js/emotion)
+- [Vite](https://github.com/vitejs/vite)
+- [biome](https://github.com/biomejs/biome)
