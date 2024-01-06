@@ -12,6 +12,7 @@ import { Rect } from '@/components/shapes/Rect'
 import { RoundedRect } from '@/components/shapes/RoundedRect'
 import { Text } from '@/components/shapes/Text'
 import { SHAPES } from '@/constants'
+import { STAGE_CONTAINER_MIN_HEIGHT } from '@/styles/constants'
 
 import { StagePresenterProps } from './types'
 
@@ -162,5 +163,6 @@ const styles = {
     display: flex;
     flex: 1;
     justify-content: center;
+    min-height: ${STAGE_CONTAINER_MIN_HEIGHT}px;
   `
 }

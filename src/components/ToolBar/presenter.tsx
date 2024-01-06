@@ -13,7 +13,7 @@ import { ToolBarButton } from '@/components/ToolBarButton'
 import { SHAPES } from '@/constants'
 import { LineIcon } from '@/icons/Line'
 import { RoundedIcon } from '@/icons/Rounded'
-import { TOOLBAR_WIDTH } from '@/styles/constants'
+import { STAGE_CONTAINER_MIN_HEIGHT, TOOLBAR_WIDTH } from '@/styles/constants'
 
 import { ToolBarPresenterProps } from './types'
 
@@ -129,6 +129,7 @@ const styles = {
     gap: ${theme.styles.margin.xxSmall};
     height: 100%;
     justify-content: center;
+    min-height: ${STAGE_CONTAINER_MIN_HEIGHT}px;
     padding: 0 ${theme.styles.padding.xSmall};
     width: ${TOOLBAR_WIDTH}px;
   `,
@@ -148,6 +149,7 @@ const styles = {
   `,
   divider: (theme: Theme) => css`
     background-color: ${theme.colors.border.main};
+    flex-shrink: 0;
     height: 1px;
     margin: ${theme.styles.margin.xSmall} 0;
     width: 100%;

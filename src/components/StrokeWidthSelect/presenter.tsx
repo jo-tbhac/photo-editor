@@ -72,6 +72,7 @@ const styles = {
     border-radius: 50%;
     color: ${theme.colors.font.sub};
     cursor: pointer;
+    flex-shrink: 0;
     font-size: ${theme.styles.fontSize.small};
     height: 25px;
     margin: ${theme.styles.margin.xxSmall} 0;
