@@ -13,8 +13,8 @@
     "scaffdog": "scaffdog generate"
   },
   "volta": {
-    "node": "18.12.1",
-    "npm": "8.19.2"
+    "node": "20.18.0",
+    "npm": "10.8.2"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
