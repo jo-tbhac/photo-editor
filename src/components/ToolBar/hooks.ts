@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
 import {
   DEFAULT_TEXT_STROKE_COLOR_DARK,
   DEFAULT_TEXT_STROKE_COLOR_LIGHT,
   SHAPES
 } from '@/constants'
-import { ShapeConfig } from '@/types'
+import type { ShapeConfig } from '@/types'
 import { isLightFontColor } from '@/utils'
 
 export const useHandleChangeFillColor = ({

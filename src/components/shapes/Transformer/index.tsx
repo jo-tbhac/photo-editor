@@ -1,10 +1,10 @@
-import Konva from 'konva'
+import type Konva from 'konva'
 import { forwardRef } from 'react'
 import { Transformer as KonvaTransformer } from 'react-konva'
 
 import { MIN_SHAPE_HEIGHT, MIN_SHAPE_WIDTH, TRANSFORMER_NAME } from '@/constants'
 
-import { TransformerProps } from './types'
+import type { TransformerProps } from './types'
 
 export const Transformer = forwardRef<Konva.Transformer, TransformerProps>(
   (

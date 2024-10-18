@@ -1,11 +1,11 @@
-import Konva from 'konva'
-import { FC, useEffect, useRef } from 'react'
+import type Konva from 'konva'
+import { type FC, useEffect, useRef } from 'react'
 import { Line } from 'react-konva'
 
 import { Transformer } from '@/components/shapes/Transformer'
 import { useHandleMouseDownShape, useTransform } from '@/hooks'
 
-import { FreeLineProps } from './types'
+import type { FreeLineProps } from './types'
 
 export const FreeLine: FC<FreeLineProps> = ({
   disabledSelect,

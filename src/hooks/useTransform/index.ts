@@ -1,5 +1,5 @@
-import Konva from 'konva'
-import { Dispatch, SetStateAction, useCallback } from 'react'
+import type Konva from 'konva'
+import { type Dispatch, type SetStateAction, useCallback } from 'react'
 
 import {
   MIN_FONT_SIZE,
@@ -8,7 +8,7 @@ import {
   MIN_TEXT_STROKE_WIDTH,
   SHAPES
 } from '@/constants'
-import { ShapeConfig } from '@/types'
+import type { ShapeConfig } from '@/types'
 
 export const useTransform = (
   element: Konva.Rect | Konva.Ellipse | Konva.Text | Konva.Line | Konva.Group | null,

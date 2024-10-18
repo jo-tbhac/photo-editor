@@ -1,7 +1,7 @@
 import '@emotion/react'
-import { Theme as MUITheme } from '@mui/material/styles'
+import type { Theme as MUITheme } from '@mui/material/styles'
 
-import { AppColors, AppStyles } from './theme'
+import type { AppColors, AppStyles } from './theme'
 
 declare module '@emotion/react' {
   export interface Theme extends MUITheme {

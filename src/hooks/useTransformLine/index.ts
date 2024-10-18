@@ -1,7 +1,7 @@
-import Konva from 'konva'
-import { Dispatch, SetStateAction, useCallback, useRef } from 'react'
+import type Konva from 'konva'
+import { type Dispatch, type SetStateAction, useCallback, useRef } from 'react'
 
-import { ShapeConfig } from '@/types'
+import type { ShapeConfig } from '@/types'
 
 export const useTransformLine = (
   element: Konva.Line | Konva.Arrow | null,

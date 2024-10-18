@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { LineConfig, ShapeConfig } from '@/types'
+import type { LineConfig, ShapeConfig } from '@/types'
 
 export interface LineProps extends LineConfig {
   disabledSelect: boolean

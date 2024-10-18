@@ -1,4 +1,4 @@
-import Konva from 'konva'
+import type Konva from 'konva'
 import { useEffect, useState } from 'react'
 
 import { TRANSFORMER_NAME } from '@/constants'

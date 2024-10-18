@@ -1,7 +1,7 @@
-import Konva from 'konva'
-import { Dispatch, MutableRefObject, SetStateAction } from 'react'
+import type Konva from 'konva'
+import type { Dispatch, MutableRefObject, SetStateAction } from 'react'
 
-import { ShapeConfig, TextConfig, TextEditorPosition } from '@/types'
+import type { ShapeConfig, TextConfig, TextEditorPosition } from '@/types'
 
 export interface TextProps extends TextConfig {
   editTextRef: MutableRefObject<Konva.Text | null>

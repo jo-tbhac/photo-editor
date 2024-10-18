@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { RoundedIconProps } from './types'
+import type { FC } from 'react'
+import type { RoundedIconProps } from './types'
 
 export const RoundedIcon: FC<RoundedIconProps> = (props) => (
   <svg

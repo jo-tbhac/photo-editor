@@ -1,11 +1,11 @@
-import { Theme, css } from '@emotion/react'
+import { type Theme, css } from '@emotion/react'
 import { faCircle } from '@fortawesome/free-regular-svg-icons/faCircle'
 import { faSquare } from '@fortawesome/free-regular-svg-icons/faSquare'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons/faArrowDown'
 import { faFont } from '@fortawesome/free-solid-svg-icons/faFont'
 import { faPen } from '@fortawesome/free-solid-svg-icons/faPen'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FC, MouseEvent } from 'react'
+import type { FC, MouseEvent } from 'react'
 
 import { FillColorSelect } from '@/components/FillColorSelect'
 import { StrokeWidthSelect } from '@/components/StrokeWidthSelect'
@@ -15,7 +15,7 @@ import { LineIcon } from '@/icons/Line'
 import { RoundedIcon } from '@/icons/Rounded'
 import { STAGE_CONTAINER_MIN_HEIGHT, TOOLBAR_WIDTH } from '@/styles/constants'
 
-import { ToolBarPresenterProps } from './types'
+import type { ToolBarPresenterProps } from './types'
 
 export const ToolBarPresenter: FC<ToolBarPresenterProps> = ({
   selectedFillColor,

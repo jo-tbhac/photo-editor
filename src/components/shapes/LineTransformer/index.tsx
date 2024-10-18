@@ -1,5 +1,5 @@
-import Konva from 'konva'
-import { FC } from 'react'
+import type Konva from 'konva'
+import type { FC } from 'react'
 import { Group, Rect } from 'react-konva'
 
 import {
@@ -12,7 +12,7 @@ import {
 } from '@/constants'
 
 import { useDragLineAnchor } from './hooks'
-import { LineTransformerProps } from './types'
+import type { LineTransformerProps } from './types'
 
 export const LineTransformer: FC<LineTransformerProps> = ({
   lineElement,

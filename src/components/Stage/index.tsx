@@ -1,11 +1,11 @@
-import Konva from 'konva'
-import { FC, useRef, useState } from 'react'
+import type Konva from 'konva'
+import { type FC, useRef, useState } from 'react'
 
-import { TextEditorPosition } from '@/types'
+import type { TextEditorPosition } from '@/types'
 
 import { useCursorStyle, useDrawShape, useImageSize } from './hooks'
 import { StagePresenter } from './presenter'
-import { StageProps } from './types'
+import type { StageProps } from './types'
 
 export const Stage: FC<StageProps> = ({
   stageElement,

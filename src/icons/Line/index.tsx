@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 
-import { LineIconProps } from './types'
+import type { LineIconProps } from './types'
 
 export const LineIcon: FC<LineIconProps> = (props) => (
   <svg

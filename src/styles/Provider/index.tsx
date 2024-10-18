@@ -1,9 +1,9 @@
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react'
 import { createTheme } from '@mui/material/styles'
-import { FC, useMemo } from 'react'
+import { type FC, useMemo } from 'react'
 
 import { colors, styles } from '../theme'
-import { ThemeProviderProps } from './types'
+import type { ThemeProviderProps } from './types'
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const theme = useMemo(() => ({ colors, styles }), [])

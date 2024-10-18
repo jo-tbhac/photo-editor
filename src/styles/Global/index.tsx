@@ -1,6 +1,6 @@
-import { Global, Theme, css } from '@emotion/react'
+import { Global, type Theme, css } from '@emotion/react'
 import emotionNormalize from 'emotion-normalize'
-import { FC } from 'react'
+import type { FC } from 'react'
 
 import '@fontsource/noto-sans-jp/400.css'
 import '@fontsource/noto-sans-jp/500.css'

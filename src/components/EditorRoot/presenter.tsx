@@ -1,5 +1,5 @@
-import { Theme, css } from '@emotion/react'
-import { FC } from 'react'
+import { type Theme, css } from '@emotion/react'
+import type { FC } from 'react'
 
 import { Dropzone } from '@/components/Dropzone'
 import { Header } from '@/components/Header'
@@ -7,7 +7,7 @@ import { Stage } from '@/components/Stage'
 import { ToolBar } from '@/components/ToolBar'
 import { HEADER_HEIGHT } from '@/styles/constants'
 
-import { EditorRootPresenterProps } from './types'
+import type { EditorRootPresenterProps } from './types'
 
 export const EditorRootPresenter: FC<EditorRootPresenterProps> = ({
   stageElement,

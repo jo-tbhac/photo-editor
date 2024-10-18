@@ -1,10 +1,10 @@
-import { Theme, css } from '@emotion/react'
-import { FC } from 'react'
+import { type Theme, css } from '@emotion/react'
+import type { FC } from 'react'
 
 import { IconButton } from '@/components/commons/IconButton'
 import { Tooltip } from '@/components/commons/Tooltip'
 
-import { ToolBarButtonPresenterProps } from './types'
+import type { ToolBarButtonPresenterProps } from './types'
 
 export const ToolBarButtonPresenter: FC<ToolBarButtonPresenterProps> = ({
   tooltipText,

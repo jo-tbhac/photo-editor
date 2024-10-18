@@ -1,7 +1,7 @@
-import Konva from 'konva'
-import { Dispatch, SetStateAction } from 'react'
+import type Konva from 'konva'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { LinePointsPosition, ShapeConfig } from '@/types'
+import type { LinePointsPosition, ShapeConfig } from '@/types'
 
 export interface LineTransformerProps {
   lineElement: Konva.Line | Konva.Arrow | null

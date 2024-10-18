@@ -1,11 +1,11 @@
-import { Theme, css } from '@emotion/react'
-import { FC } from 'react'
+import { type Theme, css } from '@emotion/react'
+import type { FC } from 'react'
 
 import { Button } from '@/components/commons/Button'
 import { CircularProgress } from '@/components/commons/CircularProgress'
 import { HEADER_HEIGHT } from '@/styles/constants'
 
-import { HeaderPresenterProps } from './types'
+import type { HeaderPresenterProps } from './types'
 
 export const HeaderPresenter: FC<HeaderPresenterProps> = ({ cancelEdit, exportImage, saving }) => {
   return (

@@ -1,6 +1,6 @@
-import * as CSS from 'csstype'
+import type * as CSS from 'csstype'
 import Konva from 'konva'
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
+import { type Dispatch, type SetStateAction, useEffect, useMemo, useState } from 'react'
 import { v4 as uuidV4 } from 'uuid'
 
 import {
@@ -17,7 +17,7 @@ import {
   STAGE_PADDING_VERTICAL,
   TOOLBAR_WIDTH
 } from '@/styles/constants'
-import {
+import type {
   ArrowConfig,
   FreeLineConfig,
   LineConfig,

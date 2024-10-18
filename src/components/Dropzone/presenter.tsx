@@ -1,9 +1,9 @@
-import { Theme, css } from '@emotion/react'
+import { type Theme, css } from '@emotion/react'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons/faCloudArrowUp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { ChangeEvent, DragEvent, FC, MouseEvent, useRef, useState } from 'react'
+import { type ChangeEvent, type DragEvent, type FC, type MouseEvent, useRef, useState } from 'react'
 
-import { DropzonePresenterProps } from './types'
+import type { DropzonePresenterProps } from './types'
 
 export const DropzonePresenter: FC<DropzonePresenterProps> = ({ handleSelectFiles }) => {
   const inputRef = useRef<HTMLInputElement>(null)

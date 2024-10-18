@@ -1,5 +1,5 @@
-import Konva from 'konva'
-import { Dispatch, SetStateAction } from 'react'
+import type Konva from 'konva'
+import type { Dispatch, SetStateAction } from 'react'
 
 export const useHandleMouseDownShape = (
   shapeId: string,

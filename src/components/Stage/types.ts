@@ -1,8 +1,8 @@
-import * as CSS from 'csstype'
-import Konva from 'konva'
-import { Dispatch, RefObject, SetStateAction } from 'react'
+import type * as CSS from 'csstype'
+import type Konva from 'konva'
+import type { Dispatch, RefObject, SetStateAction } from 'react'
 
-import { ShapeConfig, Shapes, TextEditorPosition } from '@/types'
+import type { ShapeConfig, Shapes, TextEditorPosition } from '@/types'
 
 export interface StageProps {
   stageElement: Konva.Stage | null
