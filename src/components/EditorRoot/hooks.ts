@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
+import { type Dispatch, type SetStateAction, useCallback, useEffect, useState } from 'react'
 
 import { FILL_COLOR_LIST, STROKE_WIDTH_LIST } from '@/constants'
-import { ShapeConfig, Shapes } from '@/types'
+import type { ShapeConfig, Shapes } from '@/types'
 
 export const useImage = () => {
   const [imageElement, setImageElement] = useState<HTMLImageElement | undefined>(undefined)

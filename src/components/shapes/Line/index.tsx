@@ -1,12 +1,12 @@
-import Konva from 'konva'
-import { FC, useEffect, useRef, useState } from 'react'
+import type Konva from 'konva'
+import { type FC, useEffect, useRef, useState } from 'react'
 import { Group, Line as KonvaLine } from 'react-konva'
 
 import { LineTransformer } from '@/components/shapes/LineTransformer'
 import { useHandleMouseDownShape, useTransformLine } from '@/hooks'
-import { LinePointsPosition } from '@/types'
+import type { LinePointsPosition } from '@/types'
 
-import { LineProps } from './types'
+import type { LineProps } from './types'
 
 export const Line: FC<LineProps> = ({
   disabledSelect,

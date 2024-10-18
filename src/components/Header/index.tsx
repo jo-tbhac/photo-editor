@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 
 import { useBeforeUnload, useExportImage } from './hooks'
 import { HeaderPresenter } from './presenter'
-import { HeaderProps } from './types'
+import type { HeaderProps } from './types'
 
 export const Header: FC<HeaderProps> = ({ stageElement, imageElement }) => {
   const { exportImage, saving } = useExportImage({ stageElement, imageElement })

@@ -1,7 +1,7 @@
-import { Theme, css } from '@emotion/react'
+import { type Theme, css } from '@emotion/react'
 import { forwardRef } from 'react'
 import TextareaAutoSize from 'react-textarea-autosize'
-import { TextareaProps } from './types'
+import type { TextareaProps } from './types'
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => {
   return <TextareaAutoSize ref={ref} css={styles.textarea} {...props} />

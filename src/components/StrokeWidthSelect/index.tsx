@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 
 import { StrokeWidthSelectPresenter } from './presenter'
-import { StrokeWidthSelectProps } from './types'
+import type { StrokeWidthSelectProps } from './types'
 
 export const StrokeWidthSelect: FC<StrokeWidthSelectProps> = (props) => {
   return <StrokeWidthSelectPresenter {...props} />

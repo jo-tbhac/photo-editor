@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { ShapeConfig, Shapes } from '@/types'
+import type { ShapeConfig, Shapes } from '@/types'
 
 export interface ToolBarProps {
   selectedFillColor: string

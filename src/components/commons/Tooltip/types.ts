@@ -1,3 +1,3 @@
-import { TooltipProps as MUITooltipProps } from '@mui/material/Tooltip'
+import type { TooltipProps as MUITooltipProps } from '@mui/material/Tooltip'
 
 export type TooltipProps = MUITooltipProps

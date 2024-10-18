@@ -1,8 +1,8 @@
-import Konva from 'konva'
-import { FC, useState } from 'react'
+import type Konva from 'konva'
+import { type FC, useState } from 'react'
 
 import { useRefCallback } from '@/hooks'
-import { ShapeConfig } from '@/types'
+import type { ShapeConfig } from '@/types'
 
 import {
   useHandleKeyDown,

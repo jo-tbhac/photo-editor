@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import Konva from 'konva'
-import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
+import { type ChangeEvent, type FC, useEffect, useRef, useState } from 'react'
 import { v4 as uuidV4 } from 'uuid'
 
 import { Textarea } from '@/components/commons/Textarea'
@@ -14,10 +14,10 @@ import {
   SHAPES,
   TEXT_LETTER_SPACING
 } from '@/constants'
-import { TextConfig } from '@/types'
+import type { TextConfig } from '@/types'
 import { isLightFontColor } from '@/utils'
 
-import { TextEditorProps } from './types'
+import type { TextEditorProps } from './types'
 
 export const TextEditor: FC<TextEditorProps> = ({
   drawLayerElement,

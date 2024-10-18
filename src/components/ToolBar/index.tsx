@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 
 import { useHandleChangeFillColor, useHandleChangeStrokeWidth } from './hooks'
 import { ToolBarPresenter } from './presenter'
-import { ToolBarProps } from './types'
+import type { ToolBarProps } from './types'
 
 export const ToolBar: FC<ToolBarProps> = ({
   selectedFillColor,

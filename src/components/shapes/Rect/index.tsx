@@ -1,11 +1,11 @@
-import Konva from 'konva'
-import { FC, useEffect, useRef } from 'react'
+import type Konva from 'konva'
+import { type FC, useEffect, useRef } from 'react'
 import { Rect as KonvaRect } from 'react-konva'
 
 import { Transformer } from '@/components/shapes/Transformer'
 import { useHandleMouseDownShape, useTransform } from '@/hooks'
 
-import { RectProps } from './types'
+import type { RectProps } from './types'
 
 export const Rect: FC<RectProps> = ({
   disabledSelect,

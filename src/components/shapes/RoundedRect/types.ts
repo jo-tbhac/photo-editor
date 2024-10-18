@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { RoundedRectConfig, ShapeConfig } from '@/types'
+import type { RoundedRectConfig, ShapeConfig } from '@/types'
 
 export interface RoundedRectProps extends RoundedRectConfig {
   disabledSelect: boolean

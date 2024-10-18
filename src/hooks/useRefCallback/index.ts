@@ -1,4 +1,4 @@
-import Konva from 'konva'
+import type Konva from 'konva'
 import { useCallback, useState } from 'react'
 
 export const useRefCallback = <T extends Element | Konva.Node>(): [

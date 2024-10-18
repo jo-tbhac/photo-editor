@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 
 import { ALLOWED_IMAGE_MIME_TYPES } from '@/constants'
 
 import { DropzonePresenter } from './presenter'
-import { DropzoneProps } from './types'
+import type { DropzoneProps } from './types'
 
 export const Dropzone: FC<DropzoneProps> = ({ setImageSource }) => {
   const handleSelectFiles = (files: FileList) => {

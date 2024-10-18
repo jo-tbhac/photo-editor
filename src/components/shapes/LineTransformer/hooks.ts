@@ -1,8 +1,8 @@
-import Konva from 'konva'
-import { Dispatch, SetStateAction } from 'react'
+import type Konva from 'konva'
+import type { Dispatch, SetStateAction } from 'react'
 
 import { MAX_ARROW_POINTER_WIDTH } from '@/constants'
-import { LinePointsPosition, ShapeConfig } from '@/types'
+import type { LinePointsPosition, ShapeConfig } from '@/types'
 
 export const useDragLineAnchor = ({
   lineElement,

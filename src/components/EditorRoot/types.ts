@@ -1,7 +1,7 @@
-import Konva from 'konva'
-import { Dispatch, SetStateAction } from 'react'
+import type Konva from 'konva'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { ShapeConfig, Shapes } from '@/types'
+import type { ShapeConfig, Shapes } from '@/types'
 
 export interface EditorRootPresenterProps {
   stageElement: Konva.Stage | null

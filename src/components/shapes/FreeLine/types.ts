@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { FreeLineConfig, ShapeConfig } from '@/types'
+import type { FreeLineConfig, ShapeConfig } from '@/types'
 
 export interface FreeLineProps extends FreeLineConfig {
   disabledSelect: boolean

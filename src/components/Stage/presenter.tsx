@@ -1,6 +1,6 @@
-import { Theme, css } from '@emotion/react'
-import Konva from 'konva'
-import { FC, useRef } from 'react'
+import { type Theme, css } from '@emotion/react'
+import type Konva from 'konva'
+import { type FC, useRef } from 'react'
 import { Image, Layer, Stage } from 'react-konva'
 
 import { TextEditor } from '@/components/TextEditor'
@@ -14,7 +14,7 @@ import { Text } from '@/components/shapes/Text'
 import { SHAPES } from '@/constants'
 import { STAGE_CONTAINER_MIN_HEIGHT } from '@/styles/constants'
 
-import { StagePresenterProps } from './types'
+import type { StagePresenterProps } from './types'
 
 export const StagePresenter: FC<StagePresenterProps> = ({
   stageRefCallback,

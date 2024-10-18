@@ -1,5 +1,5 @@
-import { colors } from './colors'
-import { styles } from './styles'
+import type { colors } from './colors'
+import type { styles } from './styles'
 
 export interface AppColors {
   app: typeof colors.app
